@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whale Afterlife · Blue whale</title>
+  <meta name="description" content="A gentle, paper-cut story about the blue whale: she does not sink, she puffs up, and her story can go two very different ways.">
+  <meta name="theme-color" content="#F4EEE3">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2B3D'/%3E%3Cpath d='M10 36c6-14 24-18 36-8l8-8-2 16c-4 12-18 18-30 14z' fill='%23A9D6D3'/%3E%3Ccircle cx='42' cy='31' r='2.5' fill='%230F2B3D'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+  <script>
+    /* motion preference: saved choice, else the system setting */
+    (function () {
+      var on;
+      try { var m = localStorage.getItem('motion'); on = m ? m === 'on' : !matchMedia('(prefers-reduced-motion: reduce)').matches; }
+      catch (e) { on = !matchMedia('(prefers-reduced-motion: reduce)').matches; }
+      document.documentElement.setAttribute('data-motion', on ? 'on' : 'off');
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="right.css">
+  <link rel="stylesheet" href="blue.css">
+</head>
+<body class="page-right page-blue">
+
+<a class="skip" href="#rw">Skip to the story</a>
+
+<header class="nav" id="nav">
+  <a class="logo" href="index.html" aria-label="Whale Afterlife, home">
+    <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><path d="M6 38c6-16 26-20 38-9l12-9-3 19c-4 13-20 20-34 15z" fill="currentColor"/><circle cx="43" cy="33" r="3" fill="var(--nav-bg)"/></svg>
+    <span>Whale Afterlife</span>
+  </a>
+  <nav aria-label="Main">
+    <button class="motion" id="motionToggle" type="button" aria-pressed="true" title="Turn animations on or off"><span class="motion__dot" aria-hidden="true"></span><span id="motionLabel">Motion: on</span></button>
+    <a href="index.html#choose">Choose a whale</a>
+  </nav>
+</header>
+
+<main>
+  <section class="rw" id="rw">
+
+    <div class="rw-sky" aria-hidden="true">
+      <i class="sun"></i><i class="cloud cl1"></i><i class="cloud cl2"></i><i class="cloud cl3"></i>
+      <img class="gull gull--fly" data-sprite="gull-fly" alt="">
+    </div>
+
+    <!-- scene 1: open water -->
+    <div class="rw-sea1" aria-hidden="true">
+      <div class="rw-sea"></div>
+      <div class="wave wave--b1" data-wave="#16707A"></div>
+      <div class="wave wave--b2" data-wave="#5FB0B0"></div>
+    </div>
+    <div class="bubbles" data-bubbles="8" aria-hidden="true"></div>
+
+    <!-- scene 2: a pebble beach in Alaska (switched on with one hard cut) -->
+    <div class="bw-ak" aria-hidden="true">
+      <div class="ak ak--far"></div>
+      <div class="ak ak--near"></div>
+      <div class="ak ak--forest"></div>
+      <div class="ak ak--sea"></div>
+      <img class="ak-berg" data-sprite="iceberg" alt="">
+      <div class="ak ak--beach"></div>
+      <div class="ak-fill"></div>
+      <img class="ak-log" data-sprite="driftwood" alt="">
+    </div>
+
+    <!-- the whale, with the birds that visit her -->
+    <div class="bw-group" id="group">
+      <img class="bw-whale" id="whale" data-sprite="blue-whale" alt="A blue whale floating at the surface" width="1093" height="285">
+      <img class="bird bird--gull1" data-sprite="gull-sit" alt="">
+      <img class="bird bird--eagle" data-sprite="eagle-sit" alt="">
+      <img class="bird bird--gull2" data-sprite="gull-sit" alt="">
+      <img class="bird bird--raven" data-sprite="raven" alt="">
+    </div>
+
+    <div class="rw-front1" aria-hidden="true">
+      <div class="wave wave--f1" data-wave="#A9D6D3" data-fill="linear-gradient(#A9D6D3 0, #5FB0B0 18vh, #16707A 50vh, #0F4A5C 100vh)"></div>
+      <img class="swimmer r" style="--y: calc(var(--wl) + 14vh); --t: 44s; --d: -10s; --w: 52px" data-sprite="fish-teal" alt="">
+      <img class="swimmer l" style="--y: calc(var(--wl) + 24vh); --t: 56s; --d: -28s; --w: 44px" data-sprite="fish-coral" alt="">
+      <img class="swimmer r" style="--y: calc(var(--wl) + 32vh); --t: 62s; --d: -40s; --w: 38px" data-sprite="fish-mustard" alt="">
+      <img class="bw-shark" data-sprite="shark" alt="">
+      <img class="bw-fish bw-fish--1" data-sprite="fish-coral" alt="">
+      <img class="bw-fish bw-fish--2" data-sprite="fish-mustard" alt="">
+      <img class="bw-fish bw-fish--3" data-sprite="fish-teal" alt="">
+    </div>
+
+    <!-- people and machines on the beach -->
+    <div class="bw-people" id="people" aria-hidden="true">
+      <img class="pp tourist tourist--1" data-sprite="tourist-1" alt="">
+      <img class="pp tourist tourist--2" data-sprite="tourist-2" alt="">
+      <img class="pp tourist tourist--3" data-sprite="tourist-3" alt="">
+      <img class="pp tourist tourist--4" data-sprite="tourist-4" alt="">
+      <img class="pp crew-m crew-m--exc" data-sprite="excavator" alt="">
+      <img class="pp crew-m crew-m--truck" data-sprite="dump-truck" alt="">
+      <img class="pp crew-m crew-m--w1" data-sprite="worker-1" alt="">
+      <img class="pp crew-m crew-m--w2" data-sprite="worker-2" alt="">
+    </div>
+    <div class="rw-hearts" id="hearts" aria-hidden="true"><i>♥</i><i>♥</i><i>♥</i><i>♥</i><i>♥</i></div>
+
+    <div class="caps caps--top rw-caps">
+      <div class="cap paper-card" data-step="0">
+        <span class="chip">Blue whale</span>
+        <h3>Meet the blue whale.</h3>
+        <p>The biggest animal that has ever lived. Her long life has ended, and the sea is carrying her.</p>
+        <button class="btn btn--accent" data-act="start">Let her drift</button>
+      </div>
+      <div class="cap paper-card" data-step="1">
+        <span class="chip">Doesn't sink</span>
+        <h3>She puffs up like a balloon.</h3>
+        <p>Gases make her body swell, so she floats for a long time instead of sinking.</p>
+        <button class="btn btn--accent" data-act="ask">What happens next?</button>
+      </div>
+      <div class="cap paper-card" data-step="2">
+        <span class="chip">A floating feast</span>
+        <h3>Guests from the sky and the sea.</h3>
+        <p>Gulls, an eagle and a raven land on her. Sharks and fish gather underneath. For them, she is a banquet.</p>
+        <button class="btn btn--accent" data-act="a2">And then?</button>
+      </div>
+      <div class="cap paper-card" data-step="3">
+        <span class="chip">Nothing is wasted</span>
+        <h3>She feeds the whole sea.</h3>
+        <p>Everything she leaves behind becomes a meal for someone. Even the biggest goodbye feeds many.</p>
+        <div class="rw-actions">
+          <button class="btn btn--accent" data-act="shore2">Try the other way</button>
+          <a class="btn btn--soft" href="index.html#choose">Choose another whale</a>
+        </div>
+      </div>
+      <div class="cap paper-card" data-step="4">
+        <span class="chip">Washed ashore</span>
+        <h3>The waves bring her to Alaska.</h3>
+        <p>She comes to rest on a quiet pebble beach, under snowy mountains.</p>
+        <button class="btn btn--accent" data-act="b2">Who comes to see?</button>
+      </div>
+      <div class="cap paper-card" data-step="5">
+        <span class="chip">Curious visitors</span>
+        <h3>People come to see her.</h3>
+        <p>Not everyone gets to meet a whale this big. They bring binoculars, cameras and warm coats.</p>
+        <button class="btn btn--accent" data-act="b3">And then?</button>
+      </div>
+      <div class="cap paper-card" data-step="6">
+        <span class="chip">A careful crew</span>
+        <h3>She cannot stay on the beach.</h3>
+        <p>So a careful crew takes her away piece by piece and recycles what they can.</p>
+      </div>
+      <div class="cap paper-card" data-step="7">
+        <span class="chip">The beach is quiet again</span>
+        <h3>Nothing was wasted.</h3>
+        <p>People remember the day they saw the biggest animal on Earth, and the beach is clean and calm.</p>
+        <div class="rw-actions">
+          <button class="btn btn--accent" data-act="animals2">Try the other way</button>
+          <a class="btn btn--soft" href="index.html#choose">Choose another whale</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- the choice: animals or the shore -->
+<div class="modal" id="rwModal" role="dialog" aria-modal="true" aria-label="What happens next?" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box">
+    <button class="modal__close" type="button" data-close aria-label="Close">×</button>
+    <div id="flow" class="flow">
+      <div class="flow-panel paper-card" id="q1">
+        <p class="eyebrow">Your choice</p>
+        <h2>What happens next?</h2>
+        <p class="muted">A floating whale does not stay alone for long.</p>
+        <div class="options">
+          <button class="option" data-act="animals">
+            <span class="option__title">Animals find her</span>
+            <span class="option__sub">Birds, sharks and fish</span>
+          </button>
+          <button class="option" data-act="shore">
+            <span class="option__title">The sea carries her ashore</span>
+            <span class="option__sub">To a beach in Alaska</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="journey" id="journey" aria-label="Story progress">
+  <ol>
+    <li><span>Surface</span></li>
+    <li><span>Puffing up</span></li>
+    <li><span>Her path</span></li>
+    <li><span>Visitors</span></li>
+    <li><span>The end</span></li>
+  </ol>
+</nav>
+
+<script src="blue.js"></script>
+</body>
+</html>

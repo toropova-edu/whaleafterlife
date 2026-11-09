@@ -1,0 +1,92 @@
+/* ===== Blue whale page (builds on right.css: sky, sea, waves, captions, modal) ===== */
+
+/* the whale and the birds that perch on her */
+.page-blue .rw { --wl: 60vh; }
+.bw-group { position: absolute; left: 22vw; top: calc(var(--wl) - 10vh); width: min(44vw, 720px); z-index: 2; --eat: -14;
+  animation: floatBob 5.5s ease-in-out infinite; }
+.bw-whale { display: block; width: 100%; height: auto; cursor: pointer;
+  filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .1)) drop-shadow(0 12px 12px rgba(15, 43, 61, .22)); transform-origin: 50% 60%; }
+.bw-group.puffed .bw-whale { animation: puffPop .9s ease; }
+@keyframes puffPop { 0% { scale: 1; } 35% { scale: 1.05 1.14; } 65% { scale: .98 .95; } 100% { scale: 1; } }
+
+.bird { position: absolute; height: auto; z-index: 1; transform-origin: 50% 100%; scale: 0; cursor: pointer;
+  transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
+.bird.in { scale: 1; }
+.bird--gull1 { left: 16%; bottom: 64%; width: 11%; }
+.bird--eagle { left: 38%; bottom: 90%; width: 9.5%; }
+.bird--gull2 { left: 58%; bottom: 89%; width: 10.5%; scale: 0; }
+.bird--gull2.in { scale: -1 1; }
+.bird--raven { left: 77%; bottom: 74%; width: 9%; }
+
+/* sharks and fish gathering under the surface */
+.bw-shark, .bw-fish { position: absolute; left: 0; height: auto; opacity: 0; pointer-events: none; transition: opacity .6s ease; z-index: 2; }
+.bw-shark { top: calc(var(--wl) + 9vh); width: clamp(80px, 10vw, 170px); filter: drop-shadow(0 3px 5px rgba(0, 0, 0, .3)); }
+.bw-fish--1 { top: calc(var(--wl) + 6vh);  width: 46px; --t: 30s; }
+.bw-fish--2 { top: calc(var(--wl) + 16vh); width: 38px; --t: 36s; }
+.bw-fish--3 { top: calc(var(--wl) + 20vh); width: 34px; --t: 40s; }
+.bw-shark.in { opacity: .95; animation: crossR 26s linear infinite; animation-delay: -4s; }
+.bw-fish.in { opacity: .9; animation: crossR var(--t, 30s) linear infinite; }
+.bw-fish--2.in { animation-name: crossL; }
+
+/* scene 2: a pebble beach in Alaska, one hard cut */
+.bw-ak { position: absolute; inset: 0; z-index: 1; display: none; pointer-events: none;
+  background: linear-gradient(#DCE9F2 0, #EAF0F3 30%, #F4EEE3 52%); }
+.rw--ak .bw-ak { display: block; }
+.rw--ak .rw-sea1, .rw--ak .rw-front1, .rw--ak .bubbles { display: none; }
+.rw--ak.rw { background: linear-gradient(#DCE9F2 0, #F4EEE3 45%); }
+.ak { position: absolute; left: 0; right: 0; background-repeat: repeat-x; background-size: auto 100%; }
+.ak--far { top: 17vh; height: 24vh; background-image: url("assets/sprites/mountains-far-tile.png"); }
+.ak--near { top: 23vh; height: 29vh; background-image: url("assets/sprites/mountains-near-tile.png"); }
+.ak--forest { top: 40vh; height: 22vh; background-image: url("assets/sprites/forest-tile.png"); }
+.ak--sea { top: 50vh; height: 26vh; background-image: url("assets/sprites/sea-arctic-tile.png"); }
+.ak--beach { top: 66vh; height: 24vh; background-image: url("assets/sprites/beach-pebbles-tile.png"); }
+.ak-fill { position: absolute; left: 0; right: 0; top: 89.5vh; bottom: 0; background: #A8B1B4; }
+.ak-berg { position: absolute; left: 68vw; top: 49vh; width: clamp(40px, 7vw, 110px); height: auto; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .2)); }
+.ak-log { position: absolute; left: 1vw; bottom: 3vh; width: clamp(70px, 11vw, 170px); height: auto; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .25)); }
+
+.rw--ak .bw-group { left: 26vw; top: 62vh; width: min(50vw, 820px); animation: none; rotate: -1deg; }
+.rw--ak .bird, .rw--ak .bw-shark, .rw--ak .bw-fish { display: none; }
+.rw--ak .rw-sky .sun { opacity: .6; }
+
+/* tourists, then the crew and their machines */
+.bw-people { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.pp { position: absolute; height: auto; transform-origin: 50% 100%; scale: 0; pointer-events: auto; cursor: pointer;
+  transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .28)); }
+.pp.in { scale: 1; }
+.tourist--1 { left: 3vw;  bottom: 11vh; width: 6.5vw; }
+.tourist--2 { left: 12vw; bottom: 8vh;  width: 6.5vw; }
+.tourist--3 { left: 83vw; bottom: 9vh;  width: 6vw; }
+.tourist--4 { left: 90vw; bottom: 12vh; width: 6.5vw; }
+.crew-m--exc { left: 2vw;  bottom: 11vh; width: 16vw; }
+.crew-m--w1  { left: 19vw; bottom: 8vh;  width: 5vw; }
+.crew-m--truck { left: 80vw; bottom: 12vh; width: 16vw; }
+.crew-m--w2  { left: 74vw; bottom: 7vh;  width: 5vw; }
+
+/* the whale is taken away piece by piece: from the tail towards the head */
+.bw-group.wipe .bw-whale {
+  -webkit-mask-image: linear-gradient(to right, transparent calc(var(--eat) * 1%), #000 calc(var(--eat) * 1% + 14%));
+          mask-image: linear-gradient(to right, transparent calc(var(--eat) * 1%), #000 calc(var(--eat) * 1% + 14%)); }
+
+.rw--ak .rw-hearts { left: 50vw; top: 60vh; }
+
+@media (max-width: 640px), (max-aspect-ratio: 4/5) {
+  .page-blue .rw { --wl: 64vh; }
+  .bw-group { left: 4vw; top: calc(var(--wl) - 9vh); width: min(72vw, 480px); }
+  .bw-shark { width: 22vw; }
+}
+@media (max-width: 640px) {
+  .ak--far { top: 22vh; height: 16vh; } .ak--near { top: 26vh; height: 18vh; }
+  .ak--forest { top: 38vh; height: 15vh; } .ak--sea { top: 46vh; height: 20vh; }
+  .ak--beach { top: 62vh; height: 22vh; } .ak-fill { top: 83.5vh; }
+  .rw--ak .bw-group { left: 2vw; top: 60vh; width: 96vw; }
+  .ak-berg { left: 66vw; top: 44vh; width: 12vw; } .ak-log { width: 22vw; }
+  .tourist--1 { left: 1vw; bottom: 9vh; width: 15vw; } .tourist--2 { left: 18vw; bottom: 5vh; width: 15vw; }
+  .tourist--3 { left: 70vw; bottom: 6vh; width: 14vw; } .tourist--4 { left: 84vw; bottom: 10vh; width: 15vw; }
+  .crew-m--exc { left: 0; bottom: 14vh; width: 34vw; } .crew-m--w1 { left: 36vw; bottom: 6vh; width: 12vw; }
+  .crew-m--truck { left: 62vw; bottom: 14vh; width: 36vw; } .crew-m--w2 { left: 52vw; bottom: 5vh; width: 12vw; }
+}
+/* short, wide screens: caption to the left, whale to the right (same idea as the right whale page) */
+@media (max-height: 700px) and (min-aspect-ratio: 8/5) and (min-width: 900px) {
+  .bw-group { left: 40vw; top: calc(var(--wl) - 11vh); width: min(32vw, 520px); }
+  .rw--ak .bw-group { left: 38vw; top: 60vh; width: min(42vw, 700px); }
+}
