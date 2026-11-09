@@ -2,7 +2,7 @@
 
 /* the whale and the birds that perch on her */
 .page-blue .rw { --wl: 60vh; }
-.bw-group { position: absolute; left: 22vw; top: calc(var(--wl) - 10vh); width: min(44vw, 720px); z-index: 2; --eat: -14;
+.bw-group { position: absolute; left: 22vw; top: calc(var(--wl) - 6vh); width: min(44vw, 720px); z-index: 2; --eat: -14;
   animation: floatBob 5.5s ease-in-out infinite; }
 .bw-whale { display: block; width: 100%; height: auto; cursor: pointer;
   filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .1)) drop-shadow(0 12px 12px rgba(15, 43, 61, .22)); transform-origin: 50% 60%; }
