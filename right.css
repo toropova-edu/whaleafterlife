@@ -1,0 +1,86 @@
+/* ===== Right whale page ===== */
+body.page-right { background: #F4EEE3; }
+
+.rw { position: relative; height: 100vh; height: 100dvh; overflow: hidden;
+  background: linear-gradient(#FCE6CF 0, #E3EBDD 36%, #BFE3DF 58%); }
+
+/* sky */
+.rw-sky { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.sun { position: absolute; right: 12%; top: 17%; width: clamp(64px, 8vw, 120px); aspect-ratio: 1; border-radius: 50%; background: #F2CC8F;
+  box-shadow: 0 0 0 14px rgba(242, 204, 143, .35), 0 0 0 36px rgba(242, 204, 143, .16); animation: sunPulse 7s ease-in-out infinite; }
+@keyframes sunPulse { 50% { box-shadow: 0 0 0 20px rgba(242, 204, 143, .35), 0 0 0 46px rgba(242, 204, 143, .14); } }
+.cloud { position: absolute; left: 0; height: 34px; width: var(--w, 140px); border-radius: 34px; background: #fff; opacity: .92;
+  animation: cloudDrift var(--t, 80s) linear infinite; animation-delay: var(--d, 0s); filter: drop-shadow(0 3px 0 rgba(15, 43, 61, .06)); }
+.cloud::before, .cloud::after { content: ""; position: absolute; background: #fff; border-radius: 50%; }
+.cloud::before { width: 46px; height: 46px; left: 22px; top: -22px; }
+.cloud::after { width: 62px; height: 62px; left: 60px; top: -30px; }
+.cl1 { top: 24%; --w: 150px; --t: 90s; --d: -20s; }
+.cl2 { top: 38%; --w: 120px; --t: 70s; --d: -50s; }
+.cl3 { top: 14%; --w: 100px; --t: 110s; --d: -70s; }
+@keyframes cloudDrift { from { translate: -20vw 0; } to { translate: 120vw 0; } }
+/* the gull sprite looks left, so it is mirrored to fly beak first */
+.gull--fly { position: absolute; left: 0; top: 19vh; width: clamp(48px, 6.5vw, 100px); height: auto; scale: -1 1;
+  animation: crossR 38s linear infinite; animation-delay: -9s; filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .2)); }
+
+/* sea made of simple paper shapes: a gradient and sliding wave strips */
+.rw-sea1, .rw-front1, .rw-shore, .rw-shore-front { position: absolute; inset: 0; pointer-events: none; }
+.rw-sea1 { z-index: 1; }
+.rw-front1 { z-index: 3; }
+.rw-shore, .rw-shore-front { display: none; }
+.rw-shore { z-index: 1; }
+.rw-shore-front { z-index: 3; }
+.rw-sea { position: absolute; left: 0; right: 0; top: 57vh; bottom: 0; background: linear-gradient(#8CCFCB, #4AA3A6 35%, #16707A 100%); }
+.rw-sea--far { top: 44vh; bottom: auto; height: 16vh; background: linear-gradient(#8CCFCB, #5FB0B0); }
+.wave { position: absolute; left: 0; top: var(--top); width: 200%; height: var(--h, 12vh); animation: waveSlide var(--t, 16s) linear infinite; filter: drop-shadow(0 -2px 4px rgba(15, 43, 61, .12)); }
+.wave-svg { display: block; width: 100%; height: 100%; }
+@keyframes waveSlide { from { translate: 0 0; } to { translate: -50% 0; } }
+.page-right .bubbles { top: 58vh; }
+
+/* scene 1: she floats low in the water, the boat arrives */
+.rw-whale { position: absolute; left: 22vw; top: 47vh; width: min(36vw, 600px); height: auto; z-index: 2; cursor: pointer;
+  filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .1)) drop-shadow(0 12px 12px rgba(15, 43, 61, .22)); transform-origin: 50% 70%;
+  animation: floatBob 5.5s ease-in-out infinite; }
+@keyframes floatBob { 0%, 100% { translate: 0 0; rotate: -.8deg; } 50% { translate: 0 -8px; rotate: .8deg; } }
+
+.rw-boat { position: absolute; left: 68vw; top: 31vh; width: min(27vw, 420px); z-index: 2; transform: translateX(62vw); animation: boatBob 4s ease-in-out infinite; }
+.rw-boat__hull { display: block; width: 100%; height: auto; position: relative; z-index: 2; filter: drop-shadow(0 6px 6px rgba(15, 43, 61, .28)); }
+@keyframes boatBob { 0%, 100% { translate: 0 0; rotate: -1.2deg; } 50% { translate: 0 -6px; rotate: 1.2deg; } }
+/* the crew stands on the deck: stern is low (69%), the bow rises to 58%; cut bottoms hide behind the hull */
+.crew { position: absolute; z-index: 1; height: auto; transform-origin: 50% 100%; scale: 0; cursor: pointer;
+  transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
+.crew--1 { left: 3%;  bottom: 24%; width: 15%; }
+.crew--2 { left: 75%; bottom: 35%; width: 14%; }
+.crew--3 { left: 87%; bottom: 37%; width: 12.5%; }
+.crew.in { scale: 1; }
+
+/* scene 2: the shore. Only the whale and a tent. One hard cut. */
+.rw--shore .rw-sea1, .rw--shore .rw-front1, .rw--shore .bubbles, .rw--shore .rw-boat { display: none; }
+.rw--shore .rw-shore, .rw--shore .rw-shore-front { display: block; }
+.dune { position: absolute; left: 0; width: 100%; display: block; filter: drop-shadow(0 -3px 5px rgba(15, 43, 61, .1)); }
+.dune--back { top: 52vh; height: 48vh; }
+.dune--mid { top: 62vh; height: 38vh; }
+.dune--front { top: 82vh; height: 18vh; }
+.rw-tent { position: absolute; left: 66vw; bottom: 37vh; width: clamp(110px, 15vw, 240px); height: auto; z-index: 3; filter: drop-shadow(0 6px 6px rgba(15, 43, 61, .22)); }
+.rw--shore .rw-whale { left: 24vw; top: 61vh; width: min(48vw, 790px); animation: none; rotate: -2deg; }
+
+.rw-hearts { position: absolute; left: 50vw; top: 58vh; z-index: 6; width: 0; height: 0; pointer-events: none; }
+.rw-hearts i { position: absolute; left: calc(var(--x, 0) * 1px); bottom: 0; font-style: normal; font-size: var(--s, 22px); line-height: 1; color: #F4A6A0; opacity: 0; }
+.rw-hearts.on i { animation: heartUp 3.6s ease-in infinite; animation-delay: var(--d, 0s); }
+.rw-hearts i:nth-child(1) { --x: -90; --s: 20px; --d: 0s;  --dx: -14px; }
+.rw-hearts i:nth-child(2) { --x: -30; --s: 26px; --d: .8s; --dx: 10px; }
+.rw-hearts i:nth-child(3) { --x: 30;  --s: 18px; --d: 1.6s; --dx: -8px; }
+.rw-hearts i:nth-child(4) { --x: 90;  --s: 24px; --d: 2.3s; --dx: 14px; }
+.rw-hearts i:nth-child(5) { --x: 8;   --s: 16px; --d: 3s;  --dx: 6px; }
+
+.rw-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.rw-actions .btn { margin-top: 10px; }
+.rw-caps .cap { width: min(500px, 100%); }
+.rw-caps .cap .small { margin-top: 12px; }
+
+@media (max-width: 640px) {
+  .rw-whale { left: 6vw; top: 49vh; width: 66vw; }
+  .rw-boat { width: 46vw; left: 52vw; top: 36vh; }
+  .rw--shore .rw-whale { left: 5vw; top: 63vh; width: 90vw; }
+  .rw-tent { left: 56vw; bottom: 38vh; width: 34vw; }
+  .rw-hearts { left: 50vw; top: 60vh; }
+}

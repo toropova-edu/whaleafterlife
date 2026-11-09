@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whale Afterlife</title>
+  <meta name="description" content="Pick a whale and follow her down to the deep. A gentle, paper-cut story about what happens after a whale dies, and the whole neighbourhood she becomes.">
+  <meta name="theme-color" content="#F4EEE3">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2B3D'/%3E%3Cpath d='M10 36c6-14 24-18 36-8l8-8-2 16c-4 12-18 18-30 14z' fill='%23A9D6D3'/%3E%3Ccircle cx='42' cy='31' r='2.5' fill='%230F2B3D'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+  <script>
+    /* motion preference: saved choice, else the system setting */
+    (function () {
+      var on;
+      try { var m = localStorage.getItem('motion'); on = m ? m === 'on' : !matchMedia('(prefers-reduced-motion: reduce)').matches; }
+      catch (e) { on = !matchMedia('(prefers-reduced-motion: reduce)').matches; }
+      document.documentElement.setAttribute('data-motion', on ? 'on' : 'off');
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-hub">
+
+<a class="skip" href="#choose">Skip to whales</a>
+
+<header class="nav" id="nav">
+  <a class="logo" href="index.html" aria-label="Whale Afterlife, home">
+    <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><path d="M6 38c6-16 26-20 38-9l12-9-3 19c-4 13-20 20-34 15z" fill="currentColor"/><circle cx="43" cy="33" r="3" fill="var(--nav-bg)"/></svg>
+    <span>Whale Afterlife</span>
+  </a>
+  <nav aria-label="Main">
+    <button class="motion" id="motionToggle" type="button" aria-pressed="true" title="Turn animations on or off"><span class="motion__dot" aria-hidden="true"></span><span id="motionLabel">Motion: on</span></button>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" id="choose">
+    <div class="bubbles" data-bubbles="7" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">A gentle guide to whale falls</p>
+      <h1>Choose your… whale!</h1>
+      <p class="lede">When a whale's long life ends, her story is only beginning. Pick a whale and follow her down to the deep, where she becomes a home.</p>
+      <p class="aside">Yes, this is about what happens after the end. We promise to be gentle.</p>
+
+      <div class="cards">
+        <article class="card card--ready">
+          <div class="card__art"><img src="assets/fin-whale.png" alt="A paper-cut fin whale" width="1835" height="467"></div>
+          <p class="eyebrow">Second-largest animal ever</p>
+          <h2>Fin whale</h2>
+          <p class="muted">Long, sleek and fast. Follow her all the way down to the seafloor.</p>
+          <div class="card__foot">
+            <span class="chip">Story ready</span>
+            <a class="btn btn--accent" href="fin-whale.html">Dive in</a>
+          </div>
+        </article>
+
+        <article class="card card--soon" aria-label="Blue whale, coming soon">
+          <div class="card__art"><img src="assets/fin-whale.png" alt="" width="1835" height="467"></div>
+          <p class="eyebrow">Biggest animal ever</p>
+          <h2>Blue whale</h2>
+          <p class="muted">She takes a very different road. Still being drawn.</p>
+          <div class="card__foot"><span class="chip chip--quiet">Coming soon</span></div>
+        </article>
+
+        <article class="card card--soon" aria-label="Humpback whale, coming soon">
+          <div class="card__art"><img src="assets/fin-whale.png" alt="" width="1835" height="467"></div>
+          <p class="eyebrow">The singer</p>
+          <h2>Humpback whale</h2>
+          <p class="muted">A new song for the deep. Still being drawn.</p>
+          <div class="card__foot"><span class="chip chip--quiet">Coming soon</span></div>
+        </article>
+
+        <article class="card card--ready">
+          <div class="card__art"><img src="assets/sprites/right-whale.png" onerror="this.onerror=null;this.src='assets/fin-whale.png'" alt="A right whale" width="1835" height="467"></div>
+          <p class="eyebrow">Critically endangered</p>
+          <h2>Right whale</h2>
+          <p class="muted">Stocky, gentle and very rare. Her story has a surprise.</p>
+          <div class="card__foot">
+            <span class="chip">Story ready</span>
+            <a class="btn btn--accent" href="right-whale.html">Dive in</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>Whale Afterlife · made from Sasha's whale notes · paper-cut with love</p>
+</footer>
+
+<script src="hub.js"></script>
+</body>
+</html>

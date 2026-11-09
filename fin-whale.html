@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whale Afterlife · Fin whale</title>
+  <meta name="description" content="A gentle, paper-cut story about a fin whale: how she sinks to the seafloor and becomes a home for the deep sea.">
+  <meta name="theme-color" content="#F4EEE3">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2B3D'/%3E%3Cpath d='M10 36c6-14 24-18 36-8l8-8-2 16c-4 12-18 18-30 14z' fill='%23A9D6D3'/%3E%3Ccircle cx='42' cy='31' r='2.5' fill='%230F2B3D'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+  <script>
+    /* motion preference: saved choice, else the system setting */
+    (function () {
+      var on;
+      try { var m = localStorage.getItem('motion'); on = m ? m === 'on' : !matchMedia('(prefers-reduced-motion: reduce)').matches; }
+      catch (e) { on = !matchMedia('(prefers-reduced-motion: reduce)').matches; }
+      document.documentElement.setAttribute('data-motion', on ? 'on' : 'off');
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-fin">
+
+<a class="skip" href="#fin">Skip to the story</a>
+
+<header class="nav" id="nav">
+  <a class="logo" href="index.html" aria-label="Whale Afterlife, home">
+    <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><path d="M6 38c6-16 26-20 38-9l12-9-3 19c-4 13-20 20-34 15z" fill="currentColor"/><circle cx="43" cy="33" r="3" fill="var(--nav-bg)"/></svg>
+    <span>Whale Afterlife</span>
+  </a>
+  <nav aria-label="Main">
+    <button class="motion" id="motionToggle" type="button" aria-pressed="true" title="Turn animations on or off"><span class="motion__dot" aria-hidden="true"></span><span id="motionLabel">Motion: on</span></button>
+    <a href="index.html#choose">Choose a whale</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <div class="fin-lead">
+    <div class="wrap">
+      <p class="eyebrow">A whale fall story</p>
+      <h1>Fin whale</h1>
+    </div>
+  </div>
+
+  <!-- ================= FIN WHALE STORY ================= -->
+  <div class="story" id="fin">
+
+    <!-- 0. Surface -->
+    <section class="s-surface">
+      <div class="waves" aria-hidden="true"><i class="wv wv3"></i><i class="wv wv2"></i><i class="wv wv1"></i></div>
+
+      <div class="surface-body wrap">
+        <div class="swim" aria-hidden="true">
+          <img src="assets/fin-whale.png" alt="" width="1835" height="467">
+          <div class="spout" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <img class="swim__fish f1" src="assets/sprites/fish-coral.png" alt="">
+          <img class="swim__fish f2" src="assets/sprites/fish-mustard.png" alt="">
+          <img class="swim__fish f3" src="assets/sprites/fish-teal.png" alt="">
+          <img class="swim__fish f4" src="assets/sprites/fish-mustard.png" alt="">
+          <img class="swim__fish f5" src="assets/sprites/fish-coral.png" alt="">
+        </div>
+        <div class="paper-card intro-card reveal">
+          <p class="eyebrow">Meet the fin whale</p>
+          <h2>She has lived a long, long life.</h2>
+          <p>She has crossed whole oceans. Now her body begins one last, very important job: feeding and housing the deep sea. Scroll to follow her down.</p>
+          <p class="hint" aria-hidden="true">↓ keep scrolling</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. The descent (scroll-scrubbed) -->
+    <section class="s-descent scrub" id="descent" data-scrub="descent" style="--h:320vh">
+      <div class="stage">
+                <div class="fall">
+          <img id="fallWhale" src="assets/fin-whale.png" alt="The fin whale sinking slowly through the water" width="1835" height="467">
+        </div>
+        <div class="bubbles" data-bubbles="16" aria-hidden="true"></div>
+        <img class="jelly jelly--d1" src="assets/sprites/jellyfish.png" alt="">
+        <img class="jelly jelly--d2" src="assets/sprites/jellyfish.png" alt="">
+        <img class="swimmer r" style="--y:62%; --t:46s; --d:-12s; --w:46px" src="assets/sprites/fish-teal.png" alt="">
+        <img class="swimmer l" style="--y:30%; --t:54s; --d:-30s; --w:38px" src="assets/sprites/fish-mustard.png" alt="">
+        <div class="caps caps--bottom">
+          <div class="cap paper-card" data-show="0,.45">
+            <span class="chip">Sinking</span>
+            <h3>Down she goes, slowly.</h3>
+            <p>The sunlight fades. The water turns from turquoise to midnight blue, and everything gets very quiet.</p>
+          </div>
+          <div class="cap paper-card" data-show=".45,.9">
+            <span class="chip">Not every whale sinks</span>
+            <h3>Some float for a while.</h3>
+            <p>Gas can puff a body up like a balloon, and then it drifts for days. Our fin whale sinks, down and down into the dark.</p>
+          </div>
+          <div class="cap paper-card" data-show=".9,1.01">
+            <span class="chip">1,500 m</span>
+            <h3>The seafloor is near.</h3>
+            <p>She slows down. Time to decide where she lands.</p>
+            <button class="btn btn--accent" data-act="to-choices">Where does she land?</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The feast (button steps, unlocked by the choices) -->
+    <section class="s-feast gated gate-feast" id="feast">
+      <div class="stage">
+        <div class="bubbles" data-bubbles="12" aria-hidden="true"></div>
+        <img class="shark" src="assets/sprites/shark.png" alt="">
+        <img class="squid squid--feast" src="assets/sprites/squid.png" alt="">
+        <img class="swimmer r" style="--y:18%; --t:50s; --d:-8s; --w:44px" src="assets/sprites/fish-teal.png" alt="">
+        <img class="swimmer l" style="--y:34%; --t:58s; --d:-34s; --w:36px" src="assets/sprites/fish-coral.png" alt="">
+        <img class="swimmer r" style="--y:48%; --t:64s; --d:-50s; --w:30px" src="assets/sprites/fish-mustard.png" alt="">
+        <div class="caps caps--top">
+          <div class="cap paper-card" data-step="0">
+            <span class="chip">Touchdown</span>
+            <h3>A soft landing.</h3>
+            <p>She settles on the sandy plain, 1–2 km below the waves. It is dark and very quiet. For a moment, nothing happens.</p>
+            <button class="btn btn--accent" data-act="eat">Ring the dinner bell</button>
+          </div>
+          <div class="cap paper-card" data-step="1">
+            <span class="chip">Dinner time</span>
+            <h3>The fish arrive first.</h3>
+            <p>Fish, crabs and other scavengers nibble the soft parts. It takes months, and nobody leaves hungry.</p>
+          </div>
+          <div class="cap paper-card" data-step="2">
+            <span class="chip">A few months later</span>
+            <h3>Just the bones.</h3>
+            <p>Big, sturdy and surprisingly full of oil. That is exactly what the next guests have been waiting for.</p>
+            <button class="btn btn--accent" data-act="years">Let the years go by</button>
+          </div>
+        </div>
+
+        <div class="whale-wrap" id="feastWhale">
+          <img class="skeleton" src="assets/sprites/skeleton-fin-whale.png" alt="" aria-hidden="true">
+          <img class="body" src="assets/fin-whale.png" alt="The fin whale resting on the seafloor" width="1835" height="467">
+          <div class="swarm" id="swarm" aria-hidden="true">
+            <img class="sf s1" src="assets/sprites/fish-coral.png" alt="">
+            <img class="sf s2" src="assets/sprites/fish-mustard.png" alt="">
+            <img class="sf s3" src="assets/sprites/fish-teal.png" alt="">
+            <img class="sf s4" src="assets/sprites/fish-coral.png" alt="">
+            <img class="sf s5" src="assets/sprites/fish-mustard.png" alt="">
+            <img class="sf s6" src="assets/sprites/shrimp.png" alt="">
+          </div>
+        </div>
+
+        <i class="sd sd-back"></i><i class="sd sd-mid"></i><i class="sd sd-front"></i>
+        <img class="crab" id="crab" src="assets/sprites/crab.png" alt="">
+        <img class="crab crab--b" id="crab2" src="assets/sprites/crab.png" alt="">
+        <img class="hagfish" id="hagfish" src="assets/sprites/hagfish.png" alt="">
+        <img class="star star--feast" id="starFeast" src="assets/sprites/starfish.png" alt="">
+        <img class="star star--feast2" id="starFeast2" src="assets/sprites/starfish.png" alt="">
+        <div class="noms" id="noms" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- 4. The reef on the bones (button steps) -->
+    <section class="s-cave gated gate-cave" id="cave">
+      <div class="stage">
+        <div class="caps caps--top">
+          <div class="cap paper-card" data-step="0">
+            <span class="chip">Years go by</span>
+            <h3>Fat, oily bones.</h3>
+            <p>Whale bones are full of oil. Bacteria and little pink bone-eating worms feast on it, some of them for up to ten years.</p>
+            <button class="btn btn--accent" data-act="reef">More guests arrive</button>
+          </div>
+          <div class="cap paper-card" data-step="1">
+            <span class="chip">Settling in</span>
+            <h3>The bones turn into a reef.</h3>
+            <p>Anemones and other filter-feeders settle on the bones and wave hello to anything drifting by.</p>
+            <button class="btn btn--accent" data-act="home">One more guest…</button>
+          </div>
+          <div class="cap paper-card" data-step="2">
+            <span class="chip">Home sweet home</span>
+            <h3>A happy octopus in a whale skeleton.</h3>
+            <p>Under the great ribs she finds the coziest cave in the whole deep sea, and lays her eggs where they are safe.</p>
+            <button class="btn btn--accent" data-act="finish">See the whole story</button>
+          </div>
+        </div>
+
+        <div class="cave" role="img" aria-label="Inside the ribcage of a whale skeleton: worms and anemones cover the bones and an octopus has made her home">
+          <div class="cave-glow"></div>
+          <div class="bubbles" data-bubbles="14" aria-hidden="true"></div>
+          <img class="jelly" src="assets/sprites/jellyfish.png" alt="">
+          <img class="jelly jelly--c2" src="assets/sprites/jellyfish.png" alt="">
+          <img class="swimmer l" style="--y:26%; --t:52s; --d:-10s; --w:40px" src="assets/sprites/fish-teal.png" alt="">
+          <img class="swimmer r" style="--y:40%; --t:60s; --d:-40s; --w:34px" src="assets/sprites/fish-coral.png" alt="">
+          <img class="swimmer l" style="--y:56%; --t:70s; --d:-22s; --w:30px" src="assets/sprites/fish-mustard.png" alt="">
+          <img class="squid squid--cave" src="assets/sprites/squid.png" alt="">
+          <div class="ribs" id="ribs">
+            <img class="rib-back" src="assets/sprites/ribcage-back.png" alt="">
+            <img class="rib-front" src="assets/sprites/ribcage-front.png" alt="">
+            <img class="eggs" id="eggs" src="assets/sprites/eggs.png" alt="">
+            <img class="eggs eggs--b" id="eggs2" src="assets/sprites/eggs.png" alt="">
+            <img class="octo" id="octo" src="assets/sprites/octopus.png" alt="A happy octopus">
+            <div class="hearts" aria-hidden="true"><i>♥</i><i>♥</i><i>♥</i><i>♥</i><i>♥</i></div>
+          </div>
+          <i class="sd sd-back"></i><i class="sd sd-mid"></i><i class="sd sd-front"></i>
+          <img class="star star--cave" src="assets/sprites/starfish.png" alt="">
+          <img class="crab crab--cave" src="assets/sprites/crab.png" alt="">
+          <img class="deco deco--pebbles" src="assets/sprites/pebbles.png" alt="">
+          <img class="deco deco--coral" src="assets/sprites/coral-fan.png" alt="">
+          <img class="deco deco--tube" src="assets/sprites/tubeworms.png" alt="">
+          <img class="deco deco--sponge" src="assets/sprites/sponge.png" alt="">
+          <img class="walker urchin" src="assets/sprites/urchin.png" alt="">
+          <img class="walker isopod" src="assets/sprites/isopod.png" alt="">
+          <img class="walker snail" src="assets/sprites/snail.png" alt="">
+          <img class="walker shell" src="assets/sprites/shell.png" alt="">
+          <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Outro -->
+    <section class="s-outro gated gate-outro" id="outro">
+      <div class="wrap narrow center">
+        <div class="paper-card outro-card reveal">
+          <p class="eyebrow">The end? Not quite.</p>
+          <h2>A whale fall can feed life for decades.</h2>
+          <p>Fish, worms, anemones, octopuses: the whale's last gift is a whole neighbourhood that keeps growing on her bones, long after she is gone. For the biggest whales it can last even longer.</p>
+          <ol class="timeline" aria-label="Her story over time">
+            <li><strong>Months</strong><span>Scavengers share the feast</span></li>
+            <li><strong>Years</strong><span>Worms and anemones move in</span></li>
+            <li><strong>Decades</strong><span>A whole neighbourhood grows</span></li>
+          </ol>
+          <p class="thanks">Thank you, big friend.</p>
+          <div class="outro-actions">
+            <a class="btn btn--accent" href="index.html#choose">Choose another whale</a>
+            <button class="btn btn--soft" id="replay">Fall again</button>
+          </div>
+          <p class="small">Want to read more? <a href="https://ocean.si.edu/ocean-life/marine-mammals/life-after-whale-whale-falls" target="_blank" rel="noopener">Smithsonian Ocean</a> · <a href="https://www.scientificamerican.com/article/the-prolific-afterlife-of-whales/" target="_blank" rel="noopener">Scientific American</a> · <a href="https://nhm.ac.uk/discover/what-happens-when-whales-die.html" target="_blank" rel="noopener">Natural History Museum</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>Whale Afterlife · made from Sasha's whale notes · paper-cut with love</p>
+</footer>
+
+<div class="modal" id="choiceModal" role="dialog" aria-modal="true" aria-label="Choose where she lands" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box">
+    <button class="modal__close" type="button" data-close aria-label="Close">×</button>
+        <div id="flow" class="flow">
+
+      <div class="flow-panel paper-card" id="q1">
+        <p class="eyebrow">Your choice</p>
+        <h2>Where does she land?</h2>
+        <p class="muted">Pick a spot. Every ending here is a beginning.</p>
+        <div class="options">
+          <button class="option" data-go="crevice">
+            <span class="option__title">A deep crevice</span>
+            <span class="option__sub">Tucked away in the dark</span>
+          </button>
+          <button class="option" data-go="q2">
+            <span class="option__title">A sandy plain</span>
+            <span class="option__sub">1–2 km down</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="flow-panel paper-card" id="crevice" hidden>
+        <span class="chip">A quiet detour</span>
+        <h2>A snug, secret spot.</h2>
+        <p>She slips into a deep crevice, far from curious eyes. Nobody has drawn what happens here yet. Sasha is still working on this part of the story!</p>
+        <button class="btn btn--soft" data-go="q1">Try another way</button>
+      </div>
+
+      <div class="flow-panel paper-card" id="q2" hidden>
+        <p class="eyebrow">Your choice</p>
+        <h2>Is there a current?</h2>
+        <p class="muted">The deep is not always still.</p>
+        <div class="options">
+          <button class="option" data-go="current">
+            <span class="option__title">Yes, a gentle one</span>
+            <span class="option__sub">Water on the move</span>
+          </button>
+          <button class="option" data-go="calm">
+            <span class="option__title">No, it's calm</span>
+            <span class="option__sub">Still, soft and quiet</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="flow-panel paper-card" id="current" hidden>
+        <span class="chip">A quiet detour</span>
+        <h2>Tucked in under sand.</h2>
+        <p>The current sweeps sand over her like a blanket. It is tidy and peaceful, but not many visitors find her here. Let's try calm water instead.</p>
+        <button class="btn btn--soft" data-go="q2">Try calm water</button>
+      </div>
+
+      <div class="flow-panel paper-card" id="calm" hidden>
+        <span class="chip">Perfect landing</span>
+        <h2>Still water, soft sand.</h2>
+        <p>No current at all, so she stays just as she landed. Word travels fast in the deep: dinner is served.</p>
+        <button class="btn btn--accent" id="continue">Let the feast begin</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Fixed ambient layers -->
+<div class="rays" id="rays" aria-hidden="true"></div>
+<div class="snow" id="snow" aria-hidden="true"></div>
+
+<nav class="journey" id="journey" aria-label="Story progress">
+  <ol>
+    <li><span>Surface</span></li>
+    <li><span>Descent</span></li>
+    <li><span>Landing</span></li>
+    <li><span>Feast</span></li>
+    <li><span>Years</span></li>
+    <li><span>Home</span></li>
+  </ol>
+</nav>
+
+<aside class="depth" id="depth" aria-label="Depth">
+  <div class="depth__track"><div class="depth__fill"></div><div class="depth__dot"></div></div>
+  <ol class="depth__ticks" aria-hidden="true"><li>0</li><li>500</li><li>1,000</li><li>1,500</li></ol>
+  <p class="depth__now"><span id="depthNum">0</span> m</p>
+</aside>
+
+<script src="main.js"></script>
+</body>
+</html>

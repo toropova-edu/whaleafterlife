@@ -1,0 +1,7 @@
+# local preview config
+.claude/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
