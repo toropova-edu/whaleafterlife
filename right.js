@@ -31,13 +31,16 @@
   const caps = $('.rw-caps');
   const crew = $$('.crew');
 
-  /* ---------- sea: paper wave strips, seamless when they slide ---------- */
+  /* ---------- sea: one wave tile per colour, repeated sideways at a fixed size ---------- */
   $$('[data-wave]').forEach((el) => {
     const fill = el.dataset.wave;
-    const crest = 'M0 60' + ' c90 -42 180 -42 270 0 s180 42 270 0 s90 -42 180 0'.repeat(4);
-    el.innerHTML = `<svg class="wave-svg" viewBox="0 0 2880 120" preserveAspectRatio="none" aria-hidden="true">` +
-      `<path d="${crest} V120 H0Z" fill="${fill}"/>` +
-      `<path d="${crest}" transform="translate(0 14)" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="8 10" opacity=".65" vector-effect="non-scaling-stroke"/></svg>`;
+    // one period: starts and ends at the same height and slope, so the tiles join seamlessly
+    const crest = 'M0 20 C20 6 40 6 60 20 S100 34 120 20';
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" preserveAspectRatio="none">` +
+      `<path d="${crest} V40 H0Z" fill="${fill}"/>` +
+      `<path d="${crest}" transform="translate(0 6)" fill="none" stroke="#fff" stroke-width="1.6" stroke-dasharray="5 6" opacity=".7"/></svg>`;
+    const body = el.dataset.fill || `linear-gradient(${fill}, ${fill})`;   // below the crest: flat colour or a gradient
+    el.style.backgroundImage = `url("data:image/svg+xml,${encodeURIComponent(svg)}"), ${body}`;
   });
 
   /* ---------- captions and progress ---------- */

@@ -29,20 +29,41 @@ body.page-right { background: #F4EEE3; }
 .rw-shore, .rw-shore-front { display: none; }
 .rw-shore { z-index: 1; }
 .rw-shore-front { z-index: 3; }
-.rw-sea { position: absolute; left: 0; right: 0; top: 57vh; bottom: 0; background: linear-gradient(#8CCFCB, #4AA3A6 35%, #16707A 100%); }
+.rw { --wl: 57vh; }   /* the waterline: everything in scene 1 is placed relative to it */
+.rw-sea { position: absolute; left: 0; right: 0; top: calc(var(--wl) + 4vh); bottom: 0; background: linear-gradient(#8CCFCB, #4AA3A6 22%, #16707A 55%, #0F4A5C 100%); }
 .rw-sea--far { top: 44vh; bottom: auto; height: 16vh; background: linear-gradient(#8CCFCB, #5FB0B0); }
-.wave { position: absolute; left: 0; top: var(--top); width: 200%; height: var(--h, 12vh); animation: waveSlide var(--t, 16s) linear infinite; filter: drop-shadow(0 -2px 4px rgba(15, 43, 61, .12)); }
-.wave-svg { display: block; width: 100%; height: 100%; }
-@keyframes waveSlide { from { translate: 0 0; } to { translate: -50% 0; } }
-.page-right .bubbles { top: 58vh; }
+
+/* waves are fixed-size tiles that repeat sideways, so they never get squeezed or stretched.
+   The tile image is set from JS; the fill under the crest is a plain colour. */
+.wave { position: absolute; left: 0; right: 0; top: var(--top); height: var(--h, 20vh);
+  --tw: clamp(240px, 26vw, 460px); --th: calc(var(--tw) / 3);
+  background-repeat: repeat-x, no-repeat;
+  background-size: var(--tw) var(--th), 100% 100%;
+  background-position: 0 0, 0 calc(var(--th) - 2px);
+  animation: waveBg var(--t, 16s) linear infinite; }
+@keyframes waveBg {
+  from { background-position: 0 0, 0 calc(var(--th) - 2px); }
+  to   { background-position: calc(var(--tw) * -1) 0, 0 calc(var(--th) - 2px); }
+}
+.wave--b1 { --top: calc(var(--wl) - 5vh); --h: 22vh; --t: 26s; }
+.wave--b2 { --top: calc(var(--wl) - 2vh); --h: 20vh; --t: 18s; }
+.wave--f1 { --top: calc(var(--wl) + 1vh); --h: 100vh; --t: 13s; }
+.wave--far { --top: 41vh; --h: 12vh; --t: 20s; }
+.page-right .bubbles { top: var(--wl); z-index: 4; }
+
+/* life in the deep water, so the lower part of the scene is never empty */
+.rw-front1 .swimmer { z-index: 2; }
+.rw-jelly { position: absolute; z-index: 2; right: 9%; top: calc(var(--wl) + 18vh); left: auto; width: clamp(40px, 5vw, 84px); height: auto; opacity: .85;
+  animation: jellyBob 7s ease-in-out infinite; filter: drop-shadow(0 0 16px rgba(244, 166, 160, .4)); }
+.rw-jelly--2 { right: auto; left: 8%; top: calc(var(--wl) + 26vh); width: clamp(30px, 3.6vw, 60px); opacity: .7; animation-duration: 9s; animation-delay: -3s; }
 
 /* scene 1: she floats low in the water, the boat arrives */
-.rw-whale { position: absolute; left: 22vw; top: 47vh; width: min(36vw, 600px); height: auto; z-index: 2; cursor: pointer;
+.rw-whale { position: absolute; left: 22vw; top: calc(var(--wl) - 10vh); width: min(36vw, 600px); height: auto; z-index: 2; cursor: pointer;
   filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .1)) drop-shadow(0 12px 12px rgba(15, 43, 61, .22)); transform-origin: 50% 70%;
   animation: floatBob 5.5s ease-in-out infinite; }
 @keyframes floatBob { 0%, 100% { translate: 0 0; rotate: -.8deg; } 50% { translate: 0 -8px; rotate: .8deg; } }
 
-.rw-boat { position: absolute; left: 68vw; top: 31vh; width: min(27vw, 420px); z-index: 2; transform: translateX(62vw); animation: boatBob 4s ease-in-out infinite; }
+.rw-boat { position: absolute; left: 71vw; top: calc(var(--wl) - 26vh); width: min(25vw, 400px); z-index: 2; transform: translateX(62vw); animation: boatBob 4s ease-in-out infinite; }
 .rw-boat__hull { display: block; width: 100%; height: auto; position: relative; z-index: 2; filter: drop-shadow(0 6px 6px rgba(15, 43, 61, .28)); }
 @keyframes boatBob { 0%, 100% { translate: 0 0; rotate: -1.2deg; } 50% { translate: 0 -6px; rotate: 1.2deg; } }
 /* the crew stands on the deck: stern is low (69%), the bow rises to 58%; cut bottoms hide behind the hull */
@@ -77,10 +98,26 @@ body.page-right { background: #F4EEE3; }
 .rw-caps .cap { width: min(500px, 100%); }
 .rw-caps .cap .small { margin-top: 12px; }
 
+/* tall, narrow screens: the waterline sits lower so the caption has room above it */
+@media (max-width: 640px), (max-aspect-ratio: 4/5) {
+  .rw { --wl: 62vh; }
+  .rw-whale { left: 3vw; top: calc(var(--wl) - 6vh); width: min(58vw, 460px); }
+  .rw-boat { width: min(42vw, 330px); left: 57vw; top: calc(var(--wl) - 12vh); }
+}
 @media (max-width: 640px) {
-  .rw-whale { left: 6vw; top: 49vh; width: 66vw; }
-  .rw-boat { width: 46vw; left: 52vw; top: 36vh; }
   .rw--shore .rw-whale { left: 5vw; top: 63vh; width: 90vw; }
-  .rw-tent { left: 56vw; bottom: 38vh; width: 34vw; }
+  .rw-tent { left: 58vw; bottom: 46vh; width: 34vw; }
   .rw-hearts { left: 50vw; top: 60vh; }
+}
+
+/* short, wide screens: the caption moves to the left so it never covers the whale */
+@media (max-height: 700px) and (min-aspect-ratio: 8/5) and (min-width: 900px) {
+  .rw-caps { justify-content: flex-start; padding-left: max(20px, 3vw); }
+  .rw-caps .cap { width: min(400px, 100%); padding: 18px 22px; }
+  .rw-caps .cap h3 { font-size: 21px; }
+  .rw-caps .cap p { font-size: 14.5px; line-height: 1.5; }
+  .rw-whale { left: 40vw; top: 45vh; width: min(29vw, 520px); }
+  .rw-boat { left: 72vw; width: min(24vw, 360px); }
+  .rw--shore .rw-whale { left: 36vw; top: 63vh; width: min(44vw, 720px); }
+  .rw-tent { left: 70vw; }
 }
