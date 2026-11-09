@@ -334,7 +334,7 @@ html[data-motion="off"] .snow { display: none; }
 .sd-back  { height: 23vh; background-image: url("assets/sprites/sand-back-tile.png");  z-index: 2; }
 .sd-mid   { height: 17vh; background-image: url("assets/sprites/sand-mid-tile.png");   z-index: 2; }
 .sd-front { height: 11vh; background-image: url("assets/sprites/sand-front-tile.png"); z-index: 4; filter: brightness(.9) saturate(.95); }
-.s-cave .sd-back, .s-cave .sd-mid { z-index: 4; }
+.s-cave .sd-back, .s-cave .sd-mid { z-index: 3; }   /* anemones (z4) stand in front of the dunes, behind the front sand (z5) */
 .s-cave .sd-front { z-index: 5; }
 .crab { position: absolute; left: 3%; bottom: 7vh; width: clamp(56px, 8vw, 110px); height: auto; z-index: 5; opacity: 0; filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .35)); }
 .star { position: absolute; height: auto; z-index: 6; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, .35)); }
@@ -351,7 +351,7 @@ html[data-motion="off"] .snow { display: none; }
 .pop { position: absolute; z-index: 3; translate: -50% -100%; transform-origin: 50% 100%; scale: 0; pointer-events: none; transition: scale .8s cubic-bezier(.34, 1.56, .64, 1); }
 .pop img { display: block; width: 100%; height: auto; transform-origin: 50% 100%; animation: swayTall 3.6s ease-in-out infinite alternate; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, .3)); }
 .pop--worm { width: 6.5%; }
-.pop--anemone { width: 17%; }
+.pop--anemone { width: 20%; z-index: 4; }
 .pop--anemone img { animation-duration: 4.6s; }
 @keyframes swayTall { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
 .octo { position: absolute; z-index: 7; left: 50%; margin-left: -15%; width: 30%; bottom: -3%; height: auto; transform: translateX(70vw); filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .35)); animation: bobSmall 3.6s ease-in-out infinite; }
