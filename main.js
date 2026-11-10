@@ -275,7 +275,7 @@
     }
     depthEl.classList.toggle('show', inStory && r.top < vh * .6 && r.bottom > vh * .45);
     const jl = journeyDots[1] && journeyDots[1].querySelector('span');
-    if (jl) jl.textContent = shown > 0 ? `Descent · ${shown.toLocaleString('en-US')} m` : 'Descent';
+    if (jl) jl.textContent = shown > 0 ? `Act II: Descent · ${shown.toLocaleString('en-US')} m` : 'Act II: Descent';
     rays.style.opacity = inStory ? clamp(1 - depth / 650).toFixed(2) : 0;
 
     // story progress pill
@@ -371,7 +371,7 @@
   const actions = {
     'to-choices': () => openModal(),
     eat: () => feastEat(),
-    years: () => { body.classList.add('cave-open'); requestAnimationFrame(() => scrollToEl(caveEl)); },
+    years: () => window.stage.cut(() => { body.classList.add('cave-open'); window.scrollTo({ top: 0, behavior: 'instant' }); update(); }),
     reef: () => caveReef(),
     home: () => caveHome(),
     finish: () => { body.classList.add('finished'); window.recap.open(); setTimeout(confetti, 900); },
@@ -386,11 +386,9 @@
 
   $('#continue').addEventListener('click', () => {
     closeModal(true);
-    body.classList.add('unlocked');
-    update();
-    requestAnimationFrame(() => scrollToEl(feastEl));
+    window.stage.cut(() => { body.classList.add('unlocked'); window.scrollTo({ top: 0, behavior: 'instant' }); update(); });
   });
-  $('#replay').addEventListener('click', () => { window.recap.close(true); resetAll(); requestAnimationFrame(() => scrollToEl(descent)); });
+  $('#replay').addEventListener('click', () => { window.recap.close(true); window.stage.cut(() => { resetAll(); descent.scrollIntoView({ behavior: 'instant', block: 'start' }); update(); }); });
 
   /* motion switch in the header */
   const mt = $('#motionToggle'), ml = $('#motionLabel');

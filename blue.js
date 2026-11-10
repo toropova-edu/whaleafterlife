@@ -166,11 +166,11 @@
     ask: () => openModal(),
     animals: () => { closeModal(true); setStep(2); landBirds(); ready(2, 1800); },
     a2: () => { setStep(3); ready(3); },
-    shore: () => { closeModal(true); cutToAlaska(); },
-    shore2: () => cutToAlaska(),
+    shore: () => { closeModal(true); window.stage.cut(cutToAlaska); },
+    shore2: () => window.stage.cut(cutToAlaska),
     b2: () => visitors(),
     b3: () => crewStep(),
-    animals2: () => backToSea(),
+    animals2: () => window.stage.cut(backToSea),
     recap: () => window.recap.open(),
   };
   document.addEventListener('click', (e) => {

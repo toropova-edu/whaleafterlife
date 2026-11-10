@@ -168,6 +168,8 @@ body.in-story .logo svg { color: var(--soft); }
 .s-outro { background: #0A1E2C; padding: 100px 0 140px; }
 .gated { display: none; }
 body.unlocked .gate-feast, body.cave-open .gate-cave, body.finished .gate-outro { display: block; }
+/* each scene replaces the last: nothing to scroll back to, no empty gaps between scenes */
+body.unlocked .fin-lead, body.unlocked .s-surface, body.unlocked .s-descent, body.cave-open .s-feast { display: none; }
 
 .scrub { height: var(--h, 300vh); }
 .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; }
@@ -555,7 +557,6 @@ html[data-motion="off"] .glint, html[data-motion="off"] .spout { display: none; 
 .modal .flow-panel .options { margin-right: 0; }
 
 .footer { display: none; }
-body.finished .footer { display: block; }
 
 
 /* ===== new residents ===== */
@@ -648,3 +649,13 @@ html[data-motion="off"] .shark { display: none; }
 .sea-wave--1 { --top: 0; --t: 26s; }
 .sea-wave--2 { --top: 26px; --t: 19s; }
 .sea-wave--3 { --top: 56px; --t: 14s; }
+
+/* ===== A touch of paper theatre: one curtain, only when the scene changes ===== */
+.stage-frame { position: fixed; inset: var(--nav-h) 0 0 0; z-index: 44; pointer-events: none; }
+.sf-drape { position: absolute; top: 0; bottom: 0; width: 0; transition: width .9s cubic-bezier(.65, 0, .35, 1), box-shadow .9s ease;
+  background: repeating-linear-gradient(90deg, rgba(40, 10, 5, .18) 0 5px, rgba(255, 235, 215, .10) 5px 11px, transparent 11px 17px), linear-gradient(90deg, #B8523C, #D8684E 55%, #BF573F); }
+.sf-drape--l { left: 0; }
+.sf-drape--r { right: 0; }
+.stage-frame.shut .sf-drape { width: 50.4vw; }
+.stage-frame.shut .sf-drape--l { box-shadow: 6px 0 16px rgba(15, 43, 61, .25); }
+.stage-frame.shut .sf-drape--r { box-shadow: -6px 0 16px rgba(15, 43, 61, .25); }

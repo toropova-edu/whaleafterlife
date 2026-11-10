@@ -112,7 +112,7 @@ body.page-right { background: #F4EEE3; }
 @media (max-width: 640px), (max-aspect-ratio: 4/5) {
   .rw { --wl: 62vh; }
   .rw-whale { left: 3vw; top: calc(var(--wl) - 4vh); width: min(58vw, 460px); }
-  .rw-boat { width: min(42vw, 330px); left: 57vw; top: calc(var(--wl) - 7vh); }
+  .rw-boat { width: min(42vw, 330px); left: 54vw; top: calc(var(--wl) - 7vh); }
 }
 @media (max-width: 640px) {
   .rw--shore .rw-whale { left: 5vw; top: 63vh; width: 90vw; }

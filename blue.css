@@ -43,7 +43,7 @@
   -webkit-mask-image: linear-gradient(#000 72%, transparent 100%); mask-image: linear-gradient(#000 72%, transparent 100%); }   /* the pebbles fade into the ground, no hard seam */
 .ak-fill { position: absolute; left: 0; right: 0; top: 80vh; bottom: 0; background: linear-gradient(#AEB6BC, #A3ACB2); }   /* sits under the pebble strip, whose soft lower edge melts into it */
 .ak-berg { position: absolute; left: 68vw; top: 49vh; width: clamp(40px, 7vw, 110px); height: auto; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .2)); }
-.ak-log { position: absolute; left: 1vw; bottom: 3vh; width: clamp(70px, 11vw, 170px); height: auto; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .25)); }
+.ak-log { position: absolute; left: 3.5vw; bottom: 3vh; width: clamp(70px, 11vw, 170px); height: auto; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .25)); }
 
 .rw--ak .bw-group { left: 26vw; top: 62vh; width: min(50vw, 820px); animation: none; rotate: -1deg; }
 .rw--ak .bird, .rw--ak .bw-shark, .rw--ak .bw-fish { display: none; }
@@ -54,13 +54,13 @@
 .pp { position: absolute; height: auto; transform-origin: 50% 100%; scale: 0; pointer-events: auto; cursor: pointer;
   transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .28)); }
 .pp.in { scale: 1; }
-.tourist--1 { left: 3vw;  bottom: 11vh; width: 6.5vw; }
+.tourist--1 { left: 5.5vw;  bottom: 11vh; width: 6.5vw; }
 .tourist--2 { left: 12vw; bottom: 8vh;  width: 6.5vw; }
 .tourist--3 { left: 19.5vw; bottom: 10vh; width: 6vw; }   /* the child stands left of the whale and points right, at her */
-.tourist--4 { left: 90vw; bottom: 12vh; width: 6.5vw; }
-.crew-m--exc { left: 2vw;  bottom: 11vh; width: 16vw; }
+.tourist--4 { left: 89vw; bottom: 12vh; width: 6.5vw; }
+.crew-m--exc { left: 4.5vw;  bottom: 11vh; width: 16vw; }
 .crew-m--w1  { left: 19vw; bottom: 8vh;  width: 5vw; }
-.crew-m--truck { left: 80vw; bottom: 12vh; width: 16vw; }
+.crew-m--truck { left: 79vw; bottom: 12vh; width: 16vw; }
 .crew-m--w2  { left: 74vw; bottom: 7vh;  width: 5vw; }
 
 /* the whale is taken away piece by piece: from the tail towards the head */
@@ -79,12 +79,12 @@
   .ak--far { top: 22vh; height: 16vh; } .ak--near { top: 26vh; height: 18vh; }
   .ak--forest { top: 38vh; height: 15vh; } .ak--sea { top: 46vh; height: 20vh; }
   .ak--beach { top: 62vh; height: 22vh; } .ak-fill { top: 76vh; }
-  .rw--ak .bw-group { left: 2vw; top: 60vh; width: 96vw; }
-  .ak-berg { left: 66vw; top: 44vh; width: 12vw; } .ak-log { width: 22vw; }
-  .tourist--1 { left: 1vw; bottom: 9vh; width: 15vw; } .tourist--2 { left: 18vw; bottom: 5vh; width: 15vw; }
-  .tourist--3 { left: 35vw; bottom: 6vh; width: 14vw; } .tourist--4 { left: 84vw; bottom: 10vh; width: 15vw; }
-  .crew-m--exc { left: 0; bottom: 14vh; width: 34vw; } .crew-m--w1 { left: 36vw; bottom: 6vh; width: 12vw; }
-  .crew-m--truck { left: 62vw; bottom: 14vh; width: 36vw; } .crew-m--w2 { left: 52vw; bottom: 5vh; width: 12vw; }
+  .rw--ak .bw-group { left: 4vw; top: 60vh; width: 92vw; }
+  .ak-berg { left: 66vw; top: 44vh; width: 12vw; } .ak-log { width: 22vw; left: 4vw; }
+  .tourist--1 { left: 5vw; bottom: 9vh; width: 15vw; } .tourist--2 { left: 21vw; bottom: 5vh; width: 15vw; }
+  .tourist--3 { left: 38vw; bottom: 6vh; width: 14vw; } .tourist--4 { left: 81vw; bottom: 10vh; width: 15vw; }
+  .crew-m--exc { left: 4vw; bottom: 14vh; width: 34vw; } .crew-m--w1 { left: 40vw; bottom: 6vh; width: 12vw; }
+  .crew-m--truck { left: 59vw; bottom: 14vh; width: 36vw; } .crew-m--w2 { left: 54vw; bottom: 5vh; width: 12vw; }
 }
 /* short, wide screens: caption to the left, whale to the right (same idea as the right whale page) */
 @media (max-height: 700px) and (min-aspect-ratio: 8/5) and (min-width: 900px) {

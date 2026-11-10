@@ -129,10 +129,10 @@
     floats: () => { closeModal(true); setStep(1); ready(1); },
     oops: () => { setStep(2); ready(2); },
     crew: async () => { setStep(3); setTimeout(() => setReady(3), reducedMotion() ? 0 : 900); await sailIn(); },
-    tow: () => cutToShore(),
+    tow: () => window.stage.cut(cutToShore),
     learn: () => { setStep(5); ready(5); $('#hearts').classList.add('on'); confetti(); },
     recap: () => window.recap.open(),
-    again: () => reset(),
+    again: () => window.stage.cut(reset),
   };
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-act]');
