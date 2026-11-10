@@ -376,6 +376,9 @@ html[data-motion="off"] .snow { display: none; }
 .timeline strong { display: block; font: 700 19px/1.2 var(--font-head); color: var(--secondary); margin-bottom: 4px; }
 .timeline span { font-size: 14px; color: var(--muted); line-height: 1.35; display: block; }
 .thanks { font: 700 24px/1.2 var(--font-head); color: var(--primary); margin: 28px 0 0; }
+.road { font: 700 13px/1 var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--secondary); margin: 26px 0 0; }
+.road + .timeline { margin-top: 10px; }
+.s-outro[hidden] { display: none; }
 @media (max-width: 640px) { .timeline { grid-template-columns: 1fr; } .aside { margin: -30px 0 36px; } }
 
 
@@ -616,3 +619,31 @@ html[data-motion="off"] .shark { display: none; }
 .page-hub .footer { display: block; }
 .fin-lead { background: var(--bg); padding: calc(var(--nav-h) + 30px) 0 230px; position: relative; }
 .fin-lead h1 { font-size: clamp(34px, 5vw, 52px); }
+
+/* ===== home: a small sky on top, a paper sea at the bottom ===== */
+.page-hub .nav { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.page-hub .nav.nav--solid { background: color-mix(in srgb, var(--nav-bg) 88%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.hub-sky { position: absolute; left: 0; right: 0; top: 0; height: 340px; z-index: 0; pointer-events: none; overflow: hidden;
+  background: linear-gradient(#FCE6CF, rgba(252, 230, 207, 0)); }
+.hub-sky .sun { position: absolute; right: calc(max(var(--pad), (100vw - 1200px) / 2) - 16px); top: 2px; width: 78px; aspect-ratio: 1; border-radius: 50%; background: #F2CC8F;
+  box-shadow: 0 0 0 10px rgba(242, 204, 143, .35), 0 0 0 26px rgba(242, 204, 143, .16); animation: hubSun 7s ease-in-out infinite; }
+@keyframes hubSun { 50% { box-shadow: 0 0 0 15px rgba(242, 204, 143, .35), 0 0 0 34px rgba(242, 204, 143, .14); } }
+.hub-sky .cloud { position: absolute; left: 0; height: 30px; width: var(--w, 140px); border-radius: 30px; background: #fff; opacity: .95;
+  animation: hubCloud var(--t, 90s) linear infinite; animation-delay: var(--d, 0s); filter: drop-shadow(0 3px 0 rgba(15, 43, 61, .06)); }
+.hub-sky .cloud::before, .hub-sky .cloud::after { content: ""; position: absolute; background: #fff; border-radius: 50%; }
+.hub-sky .cloud::before { width: 40px; height: 40px; left: 20px; top: -20px; }
+.hub-sky .cloud::after { width: 54px; height: 54px; left: 54px; top: -26px; }
+.hub-sky .cl1 { top: 40px; --w: 150px; --t: 100s; --d: -30s; }
+.hub-sky .cl2 { top: 118px; --w: 118px; --t: 80s; --d: -60s; }
+.hub-sky .cl3 { top: 76px; --w: 96px; --t: 120s; --d: -85s; }
+@keyframes hubCloud { from { translate: -20vw 0; } to { translate: 120vw 0; } }
+
+.footer--sea { position: relative; overflow: hidden; background: transparent; padding: 150px 24px 56px; }
+.footer--sea p { position: relative; z-index: 2; opacity: .95; font-size: 15px; letter-spacing: .01em; }
+.sea-wave { position: absolute; left: 0; right: 0; top: var(--top, 0); bottom: 0; --tw: clamp(220px, 24vw, 380px); --th: calc(var(--tw) / 3);
+  background-repeat: repeat-x, no-repeat; background-size: var(--tw) var(--th), 100% 100%; background-position: 0 0, 0 calc(var(--th) - 2px);
+  animation: seaWave var(--t, 18s) linear infinite; }
+@keyframes seaWave { from { background-position: 0 0, 0 calc(var(--th) - 2px); } to { background-position: calc(var(--tw) * -1) 0, 0 calc(var(--th) - 2px); } }
+.sea-wave--1 { --top: 0; --t: 26s; }
+.sea-wave--2 { --top: 26px; --t: 19s; }
+.sea-wave--3 { --top: 56px; --t: 14s; }

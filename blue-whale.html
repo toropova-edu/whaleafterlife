@@ -6,7 +6,7 @@
   <title>Whale Afterlife · Blue whale</title>
   <meta name="description" content="A gentle, paper-cut story about the blue whale: she does not sink, she puffs up, and her story can go two very different ways.">
   <meta name="theme-color" content="#F4EEE3">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F2B3D'/%3E%3Cpath d='M10 36c6-14 24-18 36-8l8-8-2 16c-4 12-18 18-30 14z' fill='%23A9D6D3'/%3E%3Ccircle cx='42' cy='31' r='2.5' fill='%230F2B3D'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
@@ -29,7 +29,6 @@
 
 <header class="nav" id="nav">
   <a class="logo" href="index.html" aria-label="Whale Afterlife, home">
-    <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true"><path d="M6 38c6-16 26-20 38-9l12-9-3 19c-4 13-20 20-34 15z" fill="currentColor"/><circle cx="43" cy="33" r="3" fill="var(--nav-bg)"/></svg>
     <span>Whale Afterlife</span>
   </a>
   <nav aria-label="Main">
@@ -125,7 +124,7 @@
         <h3>She feeds the whole sea.</h3>
         <p>Everything she leaves behind becomes a meal for someone. Even the biggest goodbye feeds many.</p>
         <div class="rw-actions">
-          <a class="btn btn--accent" href="index.html#choose">Choose another whale</a>
+          <button class="btn btn--accent" data-act="recap">Her story in short</button>
           <button class="btn btn--soft" data-act="shore2">Try the other way</button>
         </div>
       </div>
@@ -151,12 +150,15 @@
         <h3>Nothing was wasted.</h3>
         <p>People remember the day they saw the biggest animal on Earth, and the beach is clean and calm.</p>
         <div class="rw-actions">
-          <a class="btn btn--accent" href="index.html#choose">Choose another whale</a>
+          <button class="btn btn--accent" data-act="recap">Her story in short</button>
           <button class="btn btn--soft" data-act="animals2">Try the other way</button>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- the ending: both roads in short, and where to learn more -->
+  
 </main>
 
 <!-- the choice: animals or the shore -->
@@ -194,6 +196,38 @@
   </ol>
 </nav>
 
+<!-- the ending: the whole story in short, in its own window -->
+<div class="modal" id="recapModal" role="dialog" aria-modal="true" aria-label="Her story, in short" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box">
+    <button class="modal__close" type="button" data-close aria-label="Close">×</button>
+    <div class="paper-card outro-card center">
+        <p class="eyebrow">Her story, in short</p>
+        <h2>Two roads, and nothing is wasted.</h2>
+        <p>A blue whale does not sink at once. Gases lift her to the surface, and from there her story can go two ways.</p>
+        <p class="road">At sea</p>
+        <ol class="timeline" aria-label="The road at sea">
+          <li><strong>Afloat</strong><span>Gases keep her at the surface</span></li>
+          <li><strong>Guests</strong><span>Birds, sharks and fish come to feed</span></li>
+          <li><strong>Later</strong><span>When the gas is gone she sinks and keeps feeding the deep</span></li>
+        </ol>
+        <p class="road">On the shore</p>
+        <ol class="timeline" aria-label="The road to the shore">
+          <li><strong>Ashore</strong><span>The waves bring her to a quiet beach</span></li>
+          <li><strong>Visitors</strong><span>People come to see the biggest animal on Earth</span></li>
+          <li><strong>Crew</strong><span>Experts take her away piece by piece</span></li>
+        </ol>
+        <p class="thanks">Thank you, biggest friend.</p>
+        <div class="outro-actions">
+          <a class="btn btn--accent" href="index.html#choose">Choose another whale</a>
+          <a class="btn btn--soft" href="blue-whale.html">Watch again</a>
+        </div>
+        <p class="small">Want to read more? <a href="https://www.frontiersin.org/articles/10.3389/fmars.2020.00333/full" target="_blank" rel="noopener">Why dead whales float (Frontiers)</a> · <a href="https://www.livescience.com/59098-decomposed-sea-monster-just-a-whale.html" target="_blank" rel="noopener">Live Science</a> · <a href="https://www.fisheries.noaa.gov/feature-story/47-foot-fin-whale-found-washed-ashore-near-anchorage" target="_blank" rel="noopener">NOAA: a whale ashore near Anchorage</a> · <a href="https://adn.com/alaska-news/wildlife/2016/05/30/what-do-you-do-with-a-50-foot-long-whale-carcass-in-a-busy-harbor-town" target="_blank" rel="noopener">Anchorage Daily News</a></p>
+      </div>
+  </div>
+</div>
+
+<script src="recap.js"></script>
 <script src="blue.js"></script>
 </body>
 </html>

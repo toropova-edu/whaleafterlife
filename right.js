@@ -120,6 +120,7 @@
     crew.forEach((c) => c.classList.remove('in'));
     $('#hearts').classList.remove('on');
     $$('[data-act]').forEach((b) => { b.disabled = false; });
+    window.recap.close(true);
     setStep(0); ready(0, 500);
   }
 
@@ -130,12 +131,13 @@
     crew: async () => { setStep(3); setTimeout(() => setReady(3), reducedMotion() ? 0 : 900); await sailIn(); },
     tow: () => cutToShore(),
     learn: () => { setStep(5); ready(5); $('#hearts').classList.add('on'); confetti(); },
+    recap: () => window.recap.open(),
     again: () => reset(),
   };
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-act]');
     if (!b || b.disabled) return;
-    if (b.dataset.act !== 'ask') b.disabled = true;           // each step button works once
+    if (b.dataset.act !== 'ask' && b.dataset.act !== 'recap') b.disabled = true;           // each step button works once
     actions[b.dataset.act]();
   });
 

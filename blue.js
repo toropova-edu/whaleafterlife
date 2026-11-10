@@ -101,6 +101,7 @@
 
   // branch B: one hard cut to Alaska
   function cutToAlaska() {
+    window.scrollTo(0, 0);
     clearSea();
     stage.classList.add('rw--ak');
     group.classList.remove('wipe');
@@ -128,6 +129,7 @@
     ready(7, 500);
   }
   function backToSea() {                              // "try the other way" from the beach: the sea branch
+    window.scrollTo(0, 0);
     stage.classList.remove('rw--ak');
     tourists.forEach((t) => t.classList.remove('in')); crewM.forEach((c) => c.classList.remove('in'));
     group.classList.remove('wipe'); group.style.setProperty('--eat', -14); group.style.visibility = '';
@@ -147,11 +149,12 @@
     b2: () => visitors(),
     b3: () => crewStep(),
     animals2: () => backToSea(),
+    recap: () => window.recap.open(),
   };
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-act]');
     if (!b || b.disabled) return;
-    if (b.dataset.act !== 'ask') b.disabled = true;           // each step button works once per visit
+    if (b.dataset.act !== 'ask' && b.dataset.act !== 'recap') b.disabled = true;           // each step button works once per visit
     actions[b.dataset.act]();
   });
 

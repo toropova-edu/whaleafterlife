@@ -262,7 +262,7 @@
     rays.style.opacity = inStory ? clamp(1 - depth / 650).toFixed(2) : 0;
 
     // story progress pill
-    const secs = [[$('.s-surface'), 0], [descent, 1], [feastEl, 3], [caveEl, 4], [$('#outro'), 5]];
+    const secs = [[$('.s-surface'), 0], [descent, 1], [feastEl, 3], [caveEl, 4]];
     let idx = -1;
     secs.forEach(([s, i]) => { const b = s.getBoundingClientRect(); if (b.height > 0 && b.top <= vh / 2 && b.bottom > vh / 2) idx = i; });
     if (modal && !modal.hidden && idx <= 1) idx = 2;
@@ -357,7 +357,7 @@
     years: () => { body.classList.add('cave-open'); requestAnimationFrame(() => scrollToEl(caveEl)); },
     reef: () => caveReef(),
     home: () => caveHome(),
-    finish: () => { body.classList.add('finished'); requestAnimationFrame(() => scrollToEl($('#outro'))); setTimeout(confetti, 900); },
+    finish: () => { body.classList.add('finished'); window.recap.open(); setTimeout(confetti, 900); },
   };
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-act]');
@@ -373,7 +373,7 @@
     update();
     requestAnimationFrame(() => scrollToEl(feastEl));
   });
-  $('#replay').addEventListener('click', () => { resetAll(); requestAnimationFrame(() => scrollToEl(descent)); });
+  $('#replay').addEventListener('click', () => { window.recap.close(true); resetAll(); requestAnimationFrame(() => scrollToEl(descent)); });
 
   /* motion switch in the header */
   const mt = $('#motionToggle'), ml = $('#motionLabel');

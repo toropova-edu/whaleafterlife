@@ -13,7 +13,7 @@
   transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
 .bird.in { scale: 1; }
 .bird--gull1 { left: 16%; bottom: 64%; width: 11%; }
-.bird--eagle { left: 38%; bottom: 90%; width: 9.5%; }
+.bird--eagle { left: 38%; bottom: 83%; width: 9.5%; }
 .bird--gull2 { left: 58%; bottom: 89%; width: 10.5%; scale: 0; }
 .bird--gull2.in { scale: -1 1; }
 .bird--raven { left: 77%; bottom: 74%; width: 9%; }
@@ -55,7 +55,7 @@
 .pp.in { scale: 1; }
 .tourist--1 { left: 3vw;  bottom: 11vh; width: 6.5vw; }
 .tourist--2 { left: 12vw; bottom: 8vh;  width: 6.5vw; }
-.tourist--3 { left: 83vw; bottom: 9vh;  width: 6vw; }
+.tourist--3 { left: 19.5vw; bottom: 10vh; width: 6vw; }   /* the child stands left of the whale and points right, at her */
 .tourist--4 { left: 90vw; bottom: 12vh; width: 6.5vw; }
 .crew-m--exc { left: 2vw;  bottom: 11vh; width: 16vw; }
 .crew-m--w1  { left: 19vw; bottom: 8vh;  width: 5vw; }
@@ -81,7 +81,7 @@
   .rw--ak .bw-group { left: 2vw; top: 60vh; width: 96vw; }
   .ak-berg { left: 66vw; top: 44vh; width: 12vw; } .ak-log { width: 22vw; }
   .tourist--1 { left: 1vw; bottom: 9vh; width: 15vw; } .tourist--2 { left: 18vw; bottom: 5vh; width: 15vw; }
-  .tourist--3 { left: 70vw; bottom: 6vh; width: 14vw; } .tourist--4 { left: 84vw; bottom: 10vh; width: 15vw; }
+  .tourist--3 { left: 35vw; bottom: 6vh; width: 14vw; } .tourist--4 { left: 84vw; bottom: 10vh; width: 15vw; }
   .crew-m--exc { left: 0; bottom: 14vh; width: 34vw; } .crew-m--w1 { left: 36vw; bottom: 6vh; width: 12vw; }
   .crew-m--truck { left: 62vw; bottom: 14vh; width: 36vw; } .crew-m--w2 { left: 52vw; bottom: 5vh; width: 12vw; }
 }
