@@ -92,7 +92,29 @@
     whale.src = PUFFED;
     group.classList.remove('puffed'); void group.offsetWidth; group.classList.add('puffed');
   }
+  // every bird is placed from the whale's real outline: its feet land on her back, never in the air
+  async function seatBirds() {
+    try {
+      await whale.decode();
+      const W = whale.naturalWidth, H = whale.naturalHeight;
+      if (!W || !group.offsetWidth) return;
+      const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+      const ctx = cv.getContext('2d', { willReadFrequently: true }); ctx.drawImage(whale, 0, 0);
+      const gw = group.offsetWidth;
+      birds.forEach((b) => {
+        const c = (b.offsetLeft + b.offsetWidth / 2) / gw, half = (b.offsetWidth * 0.3) / gw;
+        const x0 = Math.max(0, Math.round((c - half) * W)), x1 = Math.min(W - 1, Math.round((c + half) * W));
+        let sum = 0, n = 0;
+        for (let x = x0; x <= x1; x += 3) {
+          const col = ctx.getImageData(x, 0, 1, H).data;
+          for (let y = 0; y < H; y++) if (col[y * 4 + 3] > 60) { sum += y; n++; break; }
+        }
+        if (n) b.style.bottom = `${((1 - sum / n / H) * 100 - 5).toFixed(1)}%`;     // 5% tucked into her back
+      });
+    } catch (e) { /* keep the CSS positions */ }
+  }
   async function landBirds() {                        // branch A: guests from the sky and the sea
+    await seatBirds();
     for (const b of birds) { b.classList.add('in'); await wait(380); }
     swimmers.forEach((s) => s.classList.add('in'));
   }

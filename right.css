@@ -58,12 +58,12 @@ body.page-right { background: #F4EEE3; }
 .rw-jelly--2 { right: auto; left: 8%; top: calc(var(--wl) + 26vh); width: clamp(30px, 3.6vw, 60px); opacity: .7; animation-duration: 9s; animation-delay: -3s; }
 
 /* scene 1: she floats low in the water, the boat arrives */
-.rw-whale { position: absolute; left: 22vw; top: calc(var(--wl) - 10vh); width: min(36vw, 600px); height: auto; z-index: 2; cursor: pointer;
+.rw-whale { position: absolute; left: 22vw; top: calc(var(--wl) - 6vh); width: min(36vw, 600px); height: auto; z-index: 2; cursor: pointer;
   filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .1)) drop-shadow(0 12px 12px rgba(15, 43, 61, .22)); transform-origin: 50% 70%;
   animation: floatBob 5.5s ease-in-out infinite; }
 @keyframes floatBob { 0%, 100% { translate: 0 0; rotate: -.8deg; } 50% { translate: 0 -8px; rotate: .8deg; } }
 
-.rw-boat { position: absolute; left: 71vw; top: calc(var(--wl) - 26vh); width: min(25vw, 400px); z-index: 2; transform: translateX(62vw); animation: boatBob 4s ease-in-out infinite; }
+.rw-boat { position: absolute; left: 71vw; top: calc(var(--wl) - 19vh); width: min(25vw, 400px); z-index: 2; transform: translateX(62vw); animation: boatBob 4s ease-in-out infinite; }
 .rw-boat__hull { display: block; width: 100%; height: auto; position: relative; z-index: 2; filter: drop-shadow(0 6px 6px rgba(15, 43, 61, .28)); }
 @keyframes boatBob { 0%, 100% { translate: 0 0; rotate: -1.2deg; } 50% { translate: 0 -6px; rotate: 1.2deg; } }
 /* the crew stands on the deck: stern is low (69%), the bow rises to 58%; cut bottoms hide behind the hull */
@@ -111,12 +111,12 @@ body.page-right { background: #F4EEE3; }
 /* tall, narrow screens: the waterline sits lower so the caption has room above it */
 @media (max-width: 640px), (max-aspect-ratio: 4/5) {
   .rw { --wl: 62vh; }
-  .rw-whale { left: 3vw; top: calc(var(--wl) - 6vh); width: min(58vw, 460px); }
-  .rw-boat { width: min(42vw, 330px); left: 57vw; top: calc(var(--wl) - 12vh); }
+  .rw-whale { left: 3vw; top: calc(var(--wl) - 4vh); width: min(58vw, 460px); }
+  .rw-boat { width: min(42vw, 330px); left: 57vw; top: calc(var(--wl) - 7vh); }
 }
 @media (max-width: 640px) {
   .rw--shore .rw-whale { left: 5vw; top: 63vh; width: 90vw; }
-  .rw-tent { left: 58vw; bottom: 46vh; width: 34vw; }
+  .rw-tent { left: 58vw; bottom: 36vh; width: 30vw; }   /* below the caption card, above the whale */
   .rw-hearts { left: 50vw; top: 60vh; }
 }
 

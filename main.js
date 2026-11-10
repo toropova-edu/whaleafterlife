@@ -192,9 +192,26 @@
   const cave = { state: 'idle' };
 
   let popId = 0;
+  // on narrow screens the ribcage is wider than the screen: creatures that would be cut off are left out
+  const fitPops = () => {
+    if (!ribs) return;
+    const vw = document.documentElement.clientWidth;
+    if (!ribs.getBoundingClientRect().width) return;
+    pops.forEach((p) => {                               // measure each one at its full size, rotation included
+      p.el.classList.remove('pop--off');
+      const keep = p.el.style.scale;
+      p.el.style.transition = 'none'; p.el.style.scale = p.s.toFixed(3);
+      const b = p.el.firstElementChild.getBoundingClientRect();
+      const seen = Math.max(0, Math.min(b.right, vw) - Math.max(b.left, 0));
+      p.el.classList.toggle('pop--off', seen < b.width * .8);
+      p.el.style.scale = keep; p.el.style.transition = '';
+    });
+  };
+  addEventListener('resize', fitPops);
   const popGroup = async (kind, gap) => {
     const mine = ++popId;
-    for (const o of pops.filter((p) => p.kind === kind)) {
+    fitPops();
+    for (const o of pops.filter((p) => p.kind === kind && !p.el.classList.contains('pop--off'))) {
       o.el.style.scale = o.s.toFixed(3);
       if (mine === popId) await wait(gap);      // a newer step started: finish the rest right away
     }

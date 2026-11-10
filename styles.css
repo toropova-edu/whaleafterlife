@@ -365,7 +365,8 @@ html[data-motion="off"] .snow { display: none; }
 .sparkles { position: absolute; inset: 0; z-index: 8; opacity: 0; pointer-events: none; }
 .spark { position: absolute; background: #F2CC8F; clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); animation: twinkle 2.4s ease-in-out infinite; }
 @keyframes twinkle { 0%, 100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.1); } }
-@media (max-width: 640px) { .ribs { width: 118vw; bottom: 12vh; } }
+@media (max-width: 640px) { .ribs { width: 104vw; bottom: 12vh; left: 50%; right: auto; margin-inline: 0; translate: -50% 0; } }
+.pop--off { display: none; }
 
 
 /* ===== copy additions ===== */
@@ -604,7 +605,7 @@ html[data-motion="off"] .shark { display: none; }
 .deco--pebbles { left: 3%; right: auto; bottom: 10vh; width: clamp(38px, 4.6vw, 80px); }
 .deco--coral   { left: 9%; right: auto; bottom: 13.5vh; width: clamp(44px, 5.4vw, 92px); }
 .deco--tube    { left: 90%; right: auto; bottom: 13vh; width: clamp(36px, 4.4vw, 76px); }
-.deco--sponge  { left: 95.5%; right: auto; bottom: 8.5vh; width: clamp(38px, 4.6vw, 80px); }
+.deco--sponge  { left: auto; right: 4%; bottom: 8.5vh; width: clamp(38px, 4.6vw, 80px); }
 .urchin { left: 33%; right: auto; bottom: 2vh; width: clamp(30px, 3.4vw, 58px); }
 .isopod { left: 73%; right: auto; bottom: 3vh; width: clamp(50px, 6vw, 98px); }
 .snail  { left: 19%; right: auto; bottom: 4.5vh; width: clamp(36px, 4vw, 66px); scale: -1 1; }

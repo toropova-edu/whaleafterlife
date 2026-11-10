@@ -39,8 +39,9 @@
 .ak--near { top: 23vh; height: 29vh; background-image: url("assets/sprites/mountains-near-tile.png"); }
 .ak--forest { top: 40vh; height: 22vh; background-image: url("assets/sprites/forest-tile.png"); }
 .ak--sea { top: 50vh; height: 26vh; background-image: url("assets/sprites/sea-arctic-tile.png"); }
-.ak--beach { top: 66vh; height: 24vh; background-image: url("assets/sprites/beach-pebbles-tile.png"); }
-.ak-fill { position: absolute; left: 0; right: 0; top: 89.5vh; bottom: 0; background: #A8B1B4; }
+.ak--beach { top: 66vh; height: 24vh; background-image: url("assets/sprites/beach-pebbles-tile.png");
+  -webkit-mask-image: linear-gradient(#000 72%, transparent 100%); mask-image: linear-gradient(#000 72%, transparent 100%); }   /* the pebbles fade into the ground, no hard seam */
+.ak-fill { position: absolute; left: 0; right: 0; top: 80vh; bottom: 0; background: linear-gradient(#AEB6BC, #A3ACB2); }   /* sits under the pebble strip, whose soft lower edge melts into it */
 .ak-berg { position: absolute; left: 68vw; top: 49vh; width: clamp(40px, 7vw, 110px); height: auto; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .2)); }
 .ak-log { position: absolute; left: 1vw; bottom: 3vh; width: clamp(70px, 11vw, 170px); height: auto; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .25)); }
 
@@ -77,7 +78,7 @@
 @media (max-width: 640px) {
   .ak--far { top: 22vh; height: 16vh; } .ak--near { top: 26vh; height: 18vh; }
   .ak--forest { top: 38vh; height: 15vh; } .ak--sea { top: 46vh; height: 20vh; }
-  .ak--beach { top: 62vh; height: 22vh; } .ak-fill { top: 83.5vh; }
+  .ak--beach { top: 62vh; height: 22vh; } .ak-fill { top: 76vh; }
   .rw--ak .bw-group { left: 2vw; top: 60vh; width: 96vw; }
   .ak-berg { left: 66vw; top: 44vh; width: 12vw; } .ak-log { width: 22vw; }
   .tourist--1 { left: 1vw; bottom: 9vh; width: 15vw; } .tourist--2 { left: 18vw; bottom: 5vh; width: 15vw; }
