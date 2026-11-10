@@ -95,8 +95,18 @@ body.page-right { background: #F4EEE3; }
 
 .rw-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
 .rw-actions .btn { margin-top: 10px; }
-.rw-caps .cap { width: min(500px, 100%); }
+.rw-caps .cap { width: min(500px, calc(100vw - 32px)); }
 .rw-caps .cap .small { margin-top: 12px; }
+/* inactive cards leave the accessibility tree and the tab order, not just the eye */
+.rw-caps .cap { visibility: hidden; transition: opacity .3s ease, transform .3s ease, visibility 0s .3s; }
+.rw-caps .cap.on { visibility: visible; transition-delay: 0s; }
+/* serious beats get a quieter, cream paper card */
+.rw-caps .cap--quiet { background: var(--surface-alt); }
+@media (min-width: 1024px) {
+  .rw-caps .cap { width: min(540px, 100%); padding: 28px 32px; }
+  .rw-caps .cap h3 { font-size: 30px; }
+  .rw-caps .cap p { font-size: 17px; line-height: 1.55; }
+}
 
 /* tall, narrow screens: the waterline sits lower so the caption has room above it */
 @media (max-width: 640px), (max-aspect-ratio: 4/5) {

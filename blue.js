@@ -123,6 +123,7 @@
     group.classList.add('wipe');
     await tween(5000, (t) => group.style.setProperty('--eat', lerp(-14, 100, t).toFixed(2)));
     group.style.visibility = 'hidden';
+    await wait(1500);                                 // a quiet beat: the empty beach, before the last card
     setStep(7);
     ready(7, 500);
   }

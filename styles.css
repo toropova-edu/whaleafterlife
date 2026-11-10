@@ -546,7 +546,9 @@ html[data-motion="off"] .glint, html[data-motion="off"] .spout { display: none; 
 .modal__close { position: absolute; top: 12px; right: 14px; z-index: 3; width: 36px; height: 36px; border-radius: 50%; border: 0; cursor: pointer;
   background: var(--surface-alt); color: var(--primary); font: 700 22px/1 var(--font-body); display: grid; place-items: center; transition: background-color .15s, transform .15s; }
 .modal__close:hover { background: var(--soft); transform: rotate(90deg); }
-.modal .flow-panel { padding-right: 56px; animation: none; }
+.modal .flow-panel { animation: none; }
+.modal .flow-panel > :is(.eyebrow, h2, .chip, .muted, p:first-of-type) { padding-right: 40px; }
+.modal .flow-panel .options { margin-right: 0; }
 
 .footer { display: none; }
 body.finished .footer { display: block; }
