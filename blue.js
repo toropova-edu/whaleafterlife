@@ -25,14 +25,14 @@
   const tourists = $$('.tourist'), crewM = $$('.crew-m');
 
   /* ---------- sea: one wave tile per colour, repeated sideways at a fixed size ---------- */
+  const WAVE_IMG = { '#16707A': 'wave-deep', '#5FB0B0': 'wave-mid', '#A9D6D3': 'wave-light' };
+  const WAVE_FILL = { 'wave-deep': '#276C75', 'wave-mid': '#609FA4', 'wave-light': '#A3CDCC' };
+  const WAVE_AR = { 'wave-deep': 26.1, 'wave-mid': 25.5, 'wave-light': 24.7 };
   $$('[data-wave]').forEach((el) => {
-    const fill = el.dataset.wave;
-    const crest = 'M0 20 C20 6 40 6 60 20 S100 34 120 20';
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" preserveAspectRatio="none">` +
-      `<path d="${crest} V40 H0Z" fill="${fill}"/>` +
-      `<path d="${crest}" transform="translate(0 6)" fill="none" stroke="#fff" stroke-width="1.6" stroke-dasharray="5 6" opacity=".7"/></svg>`;
-    const body = el.dataset.fill || `linear-gradient(${fill}, ${fill})`;
-    el.style.backgroundImage = `url("data:image/svg+xml,${encodeURIComponent(svg)}"), ${body}`;
+    const n = WAVE_IMG[el.dataset.wave] || 'wave-mid';
+    const body = el.dataset.fill || `linear-gradient(${WAVE_FILL[n]}, ${WAVE_FILL[n]})`;   // below the crest: flat colour or a gradient
+    el.style.setProperty('--ar', WAVE_AR[n]);
+    el.style.backgroundImage = `url("assets/sprites/${n}.png"), ${body}`;
   });
 
   /* ---------- captions and progress ---------- */
