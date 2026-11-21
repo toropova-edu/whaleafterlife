@@ -41,7 +41,7 @@
 .ak--sea { top: 50vh; height: 26vh; background-image: url("assets/sprites/sea-arctic-tile.png"); }
 .ak--beach { top: 66vh; height: 24vh; background-image: url("assets/sprites/beach-pebbles-tile.png");
   -webkit-mask-image: linear-gradient(#000 72%, transparent 100%); mask-image: linear-gradient(#000 72%, transparent 100%); }   /* the pebbles fade into the ground, no hard seam */
-.ak-fill { position: absolute; left: 0; right: 0; top: 80vh; bottom: 0; background: linear-gradient(#AEB6BC, #A3ACB2); }   /* sits under the pebble strip, whose soft lower edge melts into it */
+.ak-fill { position: absolute; left: 0; right: 0; top: 80vh; bottom: 0; background: url(assets/sprites/bg-pebbles.jpg) top / 100% 100% no-repeat, linear-gradient(#AEB6BC, #A3ACB2); }   /* sits under the pebble strip, whose soft lower edge melts into it */
 .ak-berg { position: absolute; left: 68vw; top: 49vh; width: clamp(40px, 7vw, 110px); height: auto; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .2)); }
 .ak-log { position: absolute; left: 3.5vw; bottom: 3vh; width: clamp(70px, 11vw, 170px); height: auto; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .25)); }
 
