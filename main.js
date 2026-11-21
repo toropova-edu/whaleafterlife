@@ -483,7 +483,7 @@
     }
   });
 
-  // dust cloud when she touches down
+  // dust cloud when it touches down
   function sandPuff() {
     if (reducedMotion()) return;
     const stage = $('.stage', feastEl);

@@ -88,11 +88,11 @@
   const PUFFED = 'assets/sprites/blue-whale-puffed.png';
   const NORMAL = 'assets/sprites/blue-whale.png';
 
-  function puff() {                                   // she swells like a balloon
+  function puff() {                                   // it swells like a balloon
     whale.src = PUFFED;
     group.classList.remove('puffed'); void group.offsetWidth; group.classList.add('puffed');
   }
-  // every bird is placed from the whale's real outline: its feet land on her back, never in the air
+  // every bird is placed from the whale's real outline: its feet land on its back, never in the air
   async function seatBirds() {
     try {
       await whale.decode();
@@ -109,7 +109,7 @@
           const col = ctx.getImageData(x, 0, 1, H).data;
           for (let y = 0; y < H; y++) if (col[y * 4 + 3] > 60) { sum += y; n++; break; }
         }
-        if (n) b.style.bottom = `${((1 - sum / n / H) * 100 - 5).toFixed(1)}%`;     // 5% tucked into her back
+        if (n) b.style.bottom = `${((1 - sum / n / H) * 100 - 5).toFixed(1)}%`;     // 5% tucked into its back
       });
     } catch (e) { /* keep the CSS positions */ }
   }

@@ -1,4 +1,4 @@
-/* Whale Afterlife: the "Her story, in short" window, shared by all story pages */
+/* Whale Afterlife: the "Its story, in short" window, shared by all story pages */
 (() => {
   const m = document.getElementById('recapModal');
   if (!m) return;

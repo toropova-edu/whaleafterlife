@@ -1,7 +1,7 @@
 # Whale Afterlife
 
 A gentle, paper-cut guide to what happens after a whale dies, and the new life it brings to the deep sea.
-Pick a whale and follow her story.
+Pick a whale and follow its story.
 
 **Live site:** https://toropova-edu.github.io/whaleafterlife/
 
