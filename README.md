@@ -11,8 +11,9 @@ Pick a whale and follow its story.
 |---|---|---|
 | Fin whale | `fin-whale.html` | ready |
 | Right whale | `right-whale.html` | ready |
-| Blue whale | not yet | still being drawn |
-| Humpback whale | not yet | still being drawn |
+| Orca | `orca-whale.html` | ready |
+| Blue whale | `blue-whale.html` | ready |
+| Humpback whale | `humpback-whale.html` | ready |
 
 ## How it works
 

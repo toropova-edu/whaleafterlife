@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Humpback whale · Whale Afterlife</title>
+  <meta name="description" content="A gentle, paper-cut story about the humpback whale: a net of crab-trap lines, a rescue, and two very different endings.">
+  <meta name="theme-color" content="#F4EEE3">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+  <script>
+    /* motion preference: saved choice, else the system setting */
+    (function () {
+      var on;
+      try { var m = localStorage.getItem('motion'); on = m ? m === 'on' : !matchMedia('(prefers-reduced-motion: reduce)').matches; }
+      catch (e) { on = !matchMedia('(prefers-reduced-motion: reduce)').matches; }
+      document.documentElement.setAttribute('data-motion', on ? 'on' : 'off');
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="right.css">
+  <link rel="stylesheet" href="humpback.css">
+</head>
+<body class="page-right page-humpback">
+
+<a class="skip" href="#rw">Skip to the story</a>
+
+<header class="nav" id="nav">
+  <a class="logo" href="index.html" aria-label="Whale Afterlife, home">
+    <span>Whale Afterlife</span>
+  </a>
+  <nav aria-label="Main">
+    <button class="motion" id="motionToggle" type="button" aria-pressed="true" title="Turn animations on or off"><span class="motion__dot" aria-hidden="true"></span><span id="motionLabel">Motion: on</span></button>
+    <a href="index.html#choose">Choose a whale</a>
+  </nav>
+</header>
+
+<div class="stage-frame" id="stageFrame" aria-hidden="true"><i class="sf-drape sf-drape--l"></i><i class="sf-drape sf-drape--r"></i></div>
+
+<main>
+  <section class="rw" id="rw">
+
+    <div class="rw-sky" aria-hidden="true">
+      <i class="sun"></i><i class="cloud cl1"></i><i class="cloud cl2"></i><i class="cloud cl3"></i>
+      <img class="gull gull--fly" data-sprite="gull-fly" alt="">
+    </div>
+
+    <div class="rw-sea1" aria-hidden="true">
+      <div class="rw-sea"></div>
+      <div class="wave wave--b1" data-wave="#16707A"></div>
+      <div class="wave wave--b2" data-wave="#5FB0B0"></div>
+    </div>
+    <div class="bubbles" data-bubbles="8" aria-hidden="true"></div>
+
+    <!-- the scarred sprite fades in once the whale is freed -->
+    <div class="rw-whale hb-whale" id="whale" role="img" aria-label="A humpback whale at the surface">
+      <img data-sprite="humpback-whale" alt="" width="1100" height="306">
+      <img class="hb-scarred" data-sprite="humpback-whale-scarred" alt="" aria-hidden="true">
+      <div class="hb-traps" aria-hidden="true">
+        <svg viewBox="0 0 100 60" preserveAspectRatio="none"><path d="M2 8 C0 22 -2 34 4 50" /><path d="M5 10 C8 24 14 34 20 52" /><path d="M7 9 C16 20 26 26 36 44" /></svg>
+        <img class="trap trap--1" data-sprite="crab-trap-1" alt="">
+        <img class="trap trap--2" data-sprite="crab-trap-2" alt="">
+        <img class="trap trap--3" data-sprite="crab-trap-3" alt="">
+      </div>
+    </div>
+
+    <div class="rw-boat" id="boat" aria-hidden="true">
+      <img class="crew crew--1" data-sprite="scientist-1" alt="">
+      <img class="crew crew--2" data-sprite="scientist-2" alt="">
+      <img class="crew crew--3" data-sprite="scientist-3" alt="">
+      <img class="rw-boat__hull" data-sprite="boat" alt="">
+    </div>
+
+    <div class="rw-front1" aria-hidden="true">
+      <div class="wave wave--f1" data-wave="#A9D6D3" data-fill="linear-gradient(#A9D6D3 0, #5FB0B0 18vh, #16707A 50vh, #0F4A5C 100vh)"></div>
+      <img class="swimmer r" style="--y: calc(var(--wl) + 14vh); --t: 44s; --d: -10s; --w: 52px" data-sprite="fish-teal" alt="">
+      <img class="swimmer l" style="--y: calc(var(--wl) + 24vh); --t: 56s; --d: -28s; --w: 44px" data-sprite="fish-coral" alt="">
+      <img class="rw-jelly" data-sprite="jellyfish" alt="">
+    </div>
+
+    <div class="rw-hearts" id="hearts" aria-hidden="true"><i>♥</i><i>♥</i><i>♥</i><i>♥</i><i>♥</i></div>
+
+    <h1 class="sr-only">The humpback whale and the crab-trap lines</h1>
+    <h2 class="sr-only">The story, step by step</h2>
+    <div class="caps caps--top rw-caps" aria-live="polite">
+      <div class="cap paper-card" data-step="0">
+        <span class="chip">Humpback whale</span>
+        <h3>Meet the humpback whale.</h3>
+        <p>The singer of the sea. Humpbacks can live 80 to 90 years (<a href="https://www.fisheries.noaa.gov/species/humpback-whale" target="_blank" rel="noopener">NOAA Fisheries</a>). But this one has a problem.</p>
+        <button class="btn btn--accent" data-act="spot">What's wrong?</button>
+      </div>
+      <div class="cap paper-card" data-step="1">
+        <span class="chip">Tangled</span>
+        <h3>Scientists spot a tangled whale.</h3>
+        <p>Lines from crab traps are wound around its tail. Every move is hard work, and the traps drag behind it.</p>
+        <button class="btn btn--accent" data-act="ask">Rescue it?</button>
+      </div>
+      <div class="cap paper-card" data-step="2">
+        <span class="chip">Not so easy</span>
+        <h3>The first try does not work.</h3>
+        <p>The lines are thick and tight. The crew is tired, and the boat is running low on fuel.</p>
+        <button class="btn btn--accent" data-act="decide">What now?</button>
+      </div>
+      <div class="cap paper-card" data-step="3">
+        <span class="chip">Free!</span>
+        <h3>The last line comes off.</h3>
+        <p>The crew keeps going, and at last the whale is free. The traps sink away, and the whale swims off.</p>
+        <button class="btn btn--accent" data-act="years">Years go by</button>
+      </div>
+      <div class="cap paper-card" data-step="4">
+        <span class="chip">A long life</span>
+        <h3>Scars, but alive.</h3>
+        <p>The lines left scars on its tail. It kept swimming, singing and travelling for many more years, all the way to a ripe old age.</p>
+        <div class="rw-actions">
+          <button class="btn btn--accent" data-act="recap">Its story in short</button>
+          <button class="btn btn--soft" data-act="retry">Try the other way</button>
+        </div>
+      </div>
+      <div class="cap cap--quiet paper-card" data-step="5">
+        <span class="chip">Gone</span>
+        <h3>The whale is not there anymore.</h3>
+        <p>The next day the crew comes back to the same spot. The whale has already left the bay, and nobody can find it.</p>
+        <button class="btn btn--accent" data-act="weak">What happened to it?</button>
+      </div>
+      <div class="cap cap--quiet paper-card" data-step="6">
+        <span class="chip">A sad ending</span>
+        <h3>Too tired to go on.</h3>
+        <p>With the traps still on its tail, the whale could barely move. It grew weak and thin, and in the end it died. It became one more victim of fishing gear.</p>
+        <div class="rw-actions">
+          <button class="btn btn--accent" data-act="recap">Its story in short</button>
+          <button class="btn btn--soft" data-act="retry">Try the other way</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="rwModal" role="dialog" aria-modal="true" aria-label="Rescue the whale?" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box">
+    <button class="modal__close" type="button" data-close aria-label="Close">×</button>
+    <div id="flow" class="flow">
+      <div class="flow-panel paper-card" id="q1">
+        <p class="eyebrow">Your choice</p>
+        <h2>Start a rescue?</h2>
+        <p class="muted">The whale is tangled in crab-trap lines. Should the crew try to free it?</p>
+        <div class="options">
+          <button class="option" data-act="rescue">
+            <span class="option__title">Yes, start the rescue</span>
+            <span class="option__sub">Carefully cut the lines</span>
+          </button>
+          <button class="option" data-go="wait">
+            <span class="option__title">Not now</span>
+            <span class="option__sub">Watch from a distance</span>
+          </button>
+        </div>
+      </div>
+      <div class="flow-panel paper-card" id="wait" hidden>
+        <span class="chip">Not this time</span>
+        <h2>It cannot wait.</h2>
+        <p>A tangled whale gets weaker every day. The crew is already here and ready to help.</p>
+        <button class="btn btn--soft" data-go="q1">Try again</button>
+      </div>
+      <div class="flow-panel paper-card" id="q2" hidden>
+        <p class="eyebrow">Your choice</p>
+        <h2>Keep trying, or wait for tomorrow?</h2>
+        <p class="muted">Everyone is tired and the fuel is low.</p>
+        <div class="options">
+          <button class="option" data-act="keep">
+            <span class="option__title">Keep trying</span>
+            <span class="option__sub">One more go, right now</span>
+          </button>
+          <button class="option" data-act="tomorrow">
+            <span class="option__title">Try again tomorrow</span>
+            <span class="option__sub">Rest, refuel, come back</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="journey" id="journey" aria-label="Story progress">
+  <ol>
+    <li><span>Act I: Surface</span></li>
+    <li><span>Act II: Tangled</span></li>
+    <li><span>Act III: Rescue</span></li>
+    <li><span>Act IV: Outcome</span></li>
+    <li><span>Act V: After</span></li>
+  </ol>
+</nav>
+
+<div class="modal" id="recapModal" role="dialog" aria-modal="true" aria-label="Its story, in short" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box">
+    <button class="modal__close" type="button" data-close aria-label="Close">×</button>
+    <div class="paper-card outro-card center">
+        <p class="eyebrow">Its story, in short</p>
+        <h2>One decision can change the ending.</h2>
+        <p>A humpback tangled in crab-trap lines is in real danger. Whether it is freed in time can decide its whole future.</p>
+        <p class="road">If the crew keeps going</p>
+        <ol class="timeline" aria-label="The rescued road">
+          <li><strong>Tangled</strong><span>Trap lines wound around the tail</span></li>
+          <li><strong>Freed</strong><span>The crew does not give up</span></li>
+          <li><strong>Old age</strong><span>Scarred, but alive for many more years</span></li>
+        </ol>
+        <p class="road">If the crew waits</p>
+        <ol class="timeline" aria-label="The road without rescue">
+          <li><strong>Gone</strong><span>The whale leaves before they return</span></li>
+          <li><strong>Weaker</strong><span>It cannot swim or feed well</span></li>
+          <li><strong>The end</strong><span>One more victim of fishing gear</span></li>
+        </ol>
+        <p class="thanks">Thank you, singer.</p>
+        <div class="outro-actions">
+          <a class="btn btn--accent" href="index.html#choose">Choose another whale</a>
+          <button class="btn btn--soft" data-act="again">Watch again</button>
+        </div>
+        <p class="small">All stories are based on real events and published science: <a href="sources.html">all sources</a>.</p>
+        <p class="small">Want to read more? <a href="https://www.sfgate.com/bayarea/article/Daring-rescue-of-whale-off-Farallones-Humpback-2557146.php" target="_blank" rel="noopener">SFGate: a daring humpback rescue</a> · <a href="https://www.seashepherdglobal.org/latest-news/another-humpback-killed/" target="_blank" rel="noopener">Sea Shepherd: another humpback killed</a> · <a href="https://www.fisheries.noaa.gov/species/humpback-whale" target="_blank" rel="noopener">NOAA: humpback whale</a></p>
+      </div>
+  </div>
+</div>
+
+<script src="stage.js"></script>
+<script src="recap.js"></script>
+<script src="humpback.js"></script>
+</body>
+</html>
