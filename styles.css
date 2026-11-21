@@ -638,10 +638,10 @@ html[data-motion="off"] .shark { display: none; }
 
 .footer--sea { position: relative; overflow: hidden; background: transparent; padding: 150px 24px 56px; }
 .footer--sea p { position: relative; z-index: 2; opacity: .95; font-size: 15px; letter-spacing: .01em; }
-.sea-wave { position: absolute; left: 0; right: 0; top: var(--top, 0); bottom: 0; --tw: clamp(1500px, 150vw, 2200px); --th: calc(var(--tw) / var(--ar, 26));
+.sea-wave { position: absolute; left: 0; right: 0; top: var(--top, 0); bottom: 0; --th: clamp(80px, 7vw, 120px); --tw: calc(var(--th) * var(--ar, 8));
   background-repeat: repeat-x, no-repeat; background-size: var(--tw) var(--th), 100% 100%; background-position: 0 0, 0 calc(var(--th) - 2px);
-  animation: seaWave calc(var(--t, 18s) * 7) linear infinite; }
-@keyframes seaWave { from { background-position: 0 0, 0 calc(var(--th) - 2px); } to { background-position: calc(var(--tw) * -1) 0, 0 calc(var(--th) - 2px); } }
+  animation: seaWave calc(var(--t, 18s) * 2.2) linear infinite; }
+@keyframes seaWave { from { background-position: calc(var(--tw) * -1) 0, 0 calc(var(--th) - 2px); } to { background-position: 0 0, 0 calc(var(--th) - 2px); } }
 .sea-wave--1 { --top: 0; --t: 26s; }
 .sea-wave--2 { --top: 26px; --t: 19s; }
 .sea-wave--3 { --top: 56px; --t: 14s; }
