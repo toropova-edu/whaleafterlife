@@ -6,17 +6,13 @@ body.page-right { background: #F4EEE3; }
 
 /* sky */
 .rw-sky { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.sun { position: absolute; right: 12%; top: 17%; width: clamp(64px, 8vw, 120px); aspect-ratio: 1; border-radius: 50%; background: #F2CC8F;
-  box-shadow: 0 0 0 14px rgba(242, 204, 143, .35), 0 0 0 36px rgba(242, 204, 143, .16); animation: sunPulse 7s ease-in-out infinite; }
-@keyframes sunPulse { 50% { box-shadow: 0 0 0 20px rgba(242, 204, 143, .35), 0 0 0 46px rgba(242, 204, 143, .14); } }
-.cloud { position: absolute; left: 0; height: 34px; width: var(--w, 140px); border-radius: 34px; background: #fff; opacity: .92;
+.sun { position: absolute; right: 10%; top: 12%; width: clamp(96px, 12vw, 190px); height: auto; animation: sunBob 9s ease-in-out infinite; }
+@keyframes sunBob { 50% { translate: 0 5px; rotate: 3deg; } }
+.cloud { position: absolute; left: 0; width: var(--w, 200px); height: auto; opacity: .95;
   animation: cloudDrift var(--t, 80s) linear infinite; animation-delay: var(--d, 0s); filter: drop-shadow(0 3px 0 rgba(15, 43, 61, .06)); }
-.cloud::before, .cloud::after { content: ""; position: absolute; background: #fff; border-radius: 50%; }
-.cloud::before { width: 46px; height: 46px; left: 22px; top: -22px; }
-.cloud::after { width: 62px; height: 62px; left: 60px; top: -30px; }
-.cl1 { top: 24%; --w: 150px; --t: 90s; --d: -20s; }
-.cl2 { top: 38%; --w: 120px; --t: 70s; --d: -50s; }
-.cl3 { top: 14%; --w: 100px; --t: 110s; --d: -70s; }
+.cl1 { top: 20%; --w: 230px; --t: 90s; --d: -20s; }
+.cl2 { top: 36%; --w: 190px; --t: 70s; --d: -50s; }
+.cl3 { top: 11%; --w: 130px; --t: 110s; --d: -70s; }
 @keyframes cloudDrift { from { translate: -20vw 0; } to { translate: 120vw 0; } }
 /* the gull sprite looks left, so it is mirrored to fly beak first */
 .gull--fly { position: absolute; left: 0; top: 19vh; width: clamp(48px, 6.5vw, 100px); height: auto; scale: -1 1;
@@ -36,18 +32,18 @@ body.page-right { background: #F4EEE3; }
 /* waves are fixed-size tiles that repeat sideways, so they never get squeezed or stretched.
    The tile image is set from JS; the fill under the crest is a plain colour. */
 .wave { position: absolute; left: 0; right: 0; top: var(--top); height: var(--h, 20vh);
-  --tw: clamp(240px, 26vw, 460px); --th: calc(var(--tw) / 3);
+  --tw: clamp(1700px, 170vw, 2600px); --th: calc(var(--tw) / var(--ar, 26));   /* the strip holds about a dozen crests */
   background-repeat: repeat-x, no-repeat;
   background-size: var(--tw) var(--th), 100% 100%;
   background-position: 0 0, 0 calc(var(--th) - 2px);
-  animation: waveBg var(--t, 16s) linear infinite; }
+  animation: waveBg calc(var(--t, 16s) * 7) linear infinite; }
 @keyframes waveBg {
   from { background-position: 0 0, 0 calc(var(--th) - 2px); }
   to   { background-position: calc(var(--tw) * -1) 0, 0 calc(var(--th) - 2px); }
 }
 .wave--b1 { --top: calc(var(--wl) - 5vh); --h: 22vh; --t: 26s; }
 .wave--b2 { --top: calc(var(--wl) - 2vh); --h: 20vh; --t: 18s; }
-.wave--f1 { --top: calc(var(--wl) + 1vh); --h: 100vh; --t: 13s; }
+.wave--f1 { --top: calc(var(--wl) + 5vh); --h: 100vh; --t: 13s; }
 .wave--far { --top: 41vh; --h: 12vh; --t: 20s; }
 .page-right .bubbles { top: var(--wl); z-index: 4; }
 
@@ -63,25 +59,27 @@ body.page-right { background: #F4EEE3; }
   animation: floatBob 5.5s ease-in-out infinite; }
 @keyframes floatBob { 0%, 100% { translate: 0 0; rotate: -.8deg; } 50% { translate: 0 -8px; rotate: .8deg; } }
 
-.rw-boat { position: absolute; left: 71vw; top: calc(var(--wl) - 19vh); width: min(25vw, 400px); z-index: 2; transform: translateX(62vw); animation: boatBob 4s ease-in-out infinite; }
+.rw-boat { position: absolute; left: 68vw; top: calc(var(--wl) - 19vh); width: min(30vw, 480px); z-index: 2; transform: translateX(62vw); animation: boatBob 4s ease-in-out infinite; }
 .rw-boat__hull { display: block; width: 100%; height: auto; position: relative; z-index: 2; filter: drop-shadow(0 6px 6px rgba(15, 43, 61, .28)); }
 @keyframes boatBob { 0%, 100% { translate: 0 0; rotate: -1.2deg; } 50% { translate: 0 -6px; rotate: 1.2deg; } }
 /* the crew stands on the deck: stern is low (69%), the bow rises to 58%; cut bottoms hide behind the hull */
 .crew { position: absolute; z-index: 1; height: auto; transform-origin: 50% 100%; scale: 0; cursor: pointer;
   transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
-.crew--1 { left: 3%;  bottom: 24%; width: 15%; }
-.crew--2 { left: 75%; bottom: 35%; width: 14%; }
-.crew--3 { left: 87%; bottom: 37%; width: 12.5%; }
+.crew--1 { left: 6%;  bottom: 41%; width: 6.6%; }
+.crew--2 { left: 15%; bottom: 40%; width: 6.8%; }
+.crew--3 { left: 25%; bottom: 39%; width: 6.8%; }
 .crew.in { scale: 1; }
 
 /* scene 2: the shore. Only the whale and a tent. One hard cut. */
 .rw--shore .rw-sea1, .rw--shore .rw-front1, .rw--shore .bubbles, .rw--shore .rw-boat { display: none; }
 .rw--shore .rw-shore, .rw--shore .rw-shore-front { display: block; }
-.dune { position: absolute; left: 0; width: 100%; display: block; filter: drop-shadow(0 -3px 5px rgba(15, 43, 61, .1)); }
-.dune--back { top: 52vh; height: 48vh; }
-.dune--mid { top: 62vh; height: 38vh; }
-.dune--front { top: 82vh; height: 18vh; }
-.rw-tent { position: absolute; left: 66vw; bottom: 37vh; width: clamp(110px, 15vw, 240px); height: auto; z-index: 3; filter: drop-shadow(0 6px 6px rgba(15, 43, 61, .22)); }
+.dune { position: absolute; left: 0; width: 100%; display: block; filter: drop-shadow(0 -3px 5px rgba(15, 43, 61, .1));
+  background-repeat: no-repeat; background-image: var(--dimg), linear-gradient(var(--dfill), var(--dfill));
+  background-size: 100% auto, 100% 100%; background-position: top, 0 calc(100vw / var(--dar) - 2px); }
+.dune--back { --dimg: url(assets/sprites/dune-far.png); --dfill: #E6D8B7; --dar: 10.69; top: 52vh; height: 48vh; }
+.dune--mid { --dimg: url(assets/sprites/dune-mid.png); --dfill: #D6C095; --dar: 10.39; top: 62vh; height: 38vh; }
+.dune--front { --dimg: url(assets/sprites/dune-near.png); --dfill: #BFA882; --dar: 10.68; top: 82vh; height: 18vh; }
+.rw-tent { display: none; position: absolute; left: 66vw; bottom: 37vh; width: clamp(110px, 15vw, 240px); height: auto; z-index: 3; filter: drop-shadow(0 6px 6px rgba(15, 43, 61, .22)); }
 .rw--shore .rw-whale { left: 24vw; top: 61vh; width: min(48vw, 790px); animation: none; rotate: -2deg; }
 
 .rw-hearts { position: absolute; left: 50vw; top: 58vh; z-index: 6; width: 0; height: 0; pointer-events: none; }
@@ -131,3 +129,15 @@ body.page-right { background: #F4EEE3; }
   .rw--shore .rw-whale { left: 36vw; top: 63vh; width: min(44vw, 720px); }
   .rw-tent { left: 70vw; }
 }
+
+/* the research camp on the beach */
+.camp { position: absolute; z-index: 3; height: auto; filter: drop-shadow(0 5px 5px rgba(15, 43, 61, .2)); }
+.camp--tripod { left: 6vw; bottom: 36vh; width: clamp(34px, 4.4vw, 70px); }
+.camp--pole { left: 12vw; bottom: 35vh; width: clamp(26px, 3.2vw, 52px); }
+.camp--tent { left: 60vw; bottom: 36vh; width: clamp(130px, 17vw, 270px); }
+.camp--table { left: 77vw; bottom: 35vh; width: clamp(110px, 14vw, 220px); }
+.camp--crates { left: 92vw; bottom: 35vh; width: clamp(40px, 5.2vw, 84px); }
+.camp--cooler { left: 80vw; bottom: 19vh; width: clamp(48px, 6vw, 96px); }
+.camp--chair { left: 88vw; bottom: 17vh; width: clamp(40px, 5vw, 80px); }
+.camp--cones { left: 4vw; bottom: 26vh; width: clamp(44px, 5.4vw, 86px); }
+@media (max-width: 640px) { .camp--tripod, .camp--pole, .camp--cones, .camp--crates, .camp--chair { display: none; } .camp--tent { left: 56vw; bottom: 36vh; width: 38vw; } .camp--table { left: 6vw; bottom: 26vh; width: 32vw; } .camp--cooler { left: 70vw; bottom: 24vh; width: 16vw; } }

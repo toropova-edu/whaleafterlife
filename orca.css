@@ -23,9 +23,9 @@
 /* people on the beach, they pop in one by one */
 .oc-person { position: absolute; z-index: 3; height: auto; scale: 0; transform-origin: 50% 100%;
   transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
-.oc-person--1 { left: 17vw; bottom: 36vh; width: clamp(78px, 9.5vw, 150px); }
+.oc-person--1 { left: 56vw; bottom: 41vh; width: clamp(78px, 9.5vw, 150px); }
 .oc-person--2 { left: 78vw; bottom: 37vh; width: clamp(70px, 8.4vw, 134px); }
-.oc-person--sci { left: 5vw; bottom: 34vh; width: clamp(80px, 9.5vw, 150px); }
+.oc-person--sci { left: 47vw; bottom: 40vh; width: clamp(80px, 9.5vw, 150px); }
 .oc--found .oc-person--1, .oc--found .oc-person--2, .oc--sci .oc-person--sci { scale: 1; }
 
 .oc-skull { display: flex; align-items: center; gap: 12px; margin: 4px 0 12px; }
@@ -37,3 +37,21 @@
   /* the daughter takes the old one's place, a bit larger */
 .oc--passed .oc-calf--1 { left: 30vw; top: calc(var(--wl) - 7vh); width: min(22vw, 360px); }
 }
+
+/* Solovki: the far shore with the monastery, and things lying about on the beach */
+.oc-backdrop { position: absolute; left: -22vw; bottom: 56vh; width: 150vw; max-width: none; height: auto; opacity: .95; }
+.sol { position: absolute; z-index: 2; height: auto; max-width: none; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .18)); }
+.sol--pine { left: 2vw; bottom: 40vh; width: clamp(50px, 7vw, 110px); z-index: 1; }
+.sol--trees { left: 86vw; bottom: 39vh; width: clamp(80px, 11vw, 170px); z-index: 1; }
+.sol--birch { left: 95vw; bottom: 39vh; width: clamp(30px, 4vw, 60px); z-index: 1; }
+.sol--net { left: 31vw; bottom: 35vh; width: clamp(110px, 14vw, 220px); z-index: 1; }
+.sol--boulders { left: -1vw; bottom: 17vh; width: clamp(130px, 17vw, 270px); z-index: 4; }
+.sol--driftwood { left: 66vw; bottom: 17vh; width: clamp(120px, 17vw, 270px); z-index: 4; }
+.sol--rowboat { left: 74vw; bottom: 3vh; width: clamp(160px, 22vw, 340px); z-index: 4; }
+.sol--weed1 { left: 24vw; bottom: 12vh; width: clamp(40px, 5vw, 80px); z-index: 4; }
+.sol--weed2 { left: 55vw; bottom: 10vh; width: clamp(36px, 4.4vw, 70px); z-index: 4; }
+.sol--pebbles { left: 40vw; bottom: 6vh; width: clamp(70px, 9vw, 140px); z-index: 4; }
+.rw-shore .sol, .rw-shore .oc-backdrop { display: block; }
+.oc--passed .oc-calf--1 { width: min(26vw, 430px); }
+@media (min-width: 1024px) { .page-orca.page-orca .rw--shore .rw-caps { justify-content: flex-start; padding-left: max(24px, 4vw); } }
+@media (max-width: 640px) { .oc-backdrop { left: -60vw; width: 220vw; bottom: 58vh; } .sol--boulders, .sol--pebbles, .sol--net { display: none; } .sol--rowboat { left: 52vw; width: 46vw; } .sol--driftwood { left: 4vw; width: 40vw; } }

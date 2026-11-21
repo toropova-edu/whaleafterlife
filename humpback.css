@@ -7,12 +7,9 @@
 .hb--freed .hb-whale > img:first-child { opacity: 0; }
 /* the tail is on the left of the sprite: trap lines hang from it */
 .hb-traps { position: absolute; left: -4%; top: 14%; width: 48%; height: 80%; pointer-events: none; transition: opacity .6s ease, translate 1.2s ease; }
-.hb-traps svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.hb-traps path { fill: none; stroke: #6B4F3A; stroke-width: 2; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; }
-.hb-traps .trap { position: absolute; height: auto; filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
-.trap--1 { left: -6%; top: 4%; width: 44%; rotate: -6deg; }
-.trap--2 { left: 36%; top: 26%; width: 40%; rotate: 8deg; }
-.trap--3 { left: 70%; top: 0%; width: 34%; rotate: -4deg; }
+.hb-traps .trap { position: absolute; height: auto; filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .22)); }
+.trap--1 { left: -20%; top: 4%; width: 76%; rotate: -6deg; }
+.trap--2 { left: -4%; top: 40%; width: 64%; scale: -1 1; rotate: 8deg; }
 .hb--freed .hb-traps { opacity: 0; translate: 0 18vh; }
 .hb--gone .hb-whale { translate: 70vw 0; opacity: 0; animation: none; }
 .hb--weak .hb-whale { translate: 0 0; opacity: 1; filter: grayscale(.8) brightness(.92) drop-shadow(0 12px 12px rgba(15, 43, 61, .22)); rotate: 6deg; animation: none; top: calc(var(--wl) - 2vh); }
