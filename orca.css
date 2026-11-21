@@ -5,25 +5,25 @@
 .oc-calf { position: absolute; z-index: 2; height: auto; opacity: 0; pointer-events: none;
   transition: opacity .8s ease, left 1.6s ease, top 1.6s ease, width 1.6s ease; animation: floatBob 6s ease-in-out infinite; }
 .oc-calf--1 { left: 61vw; top: calc(var(--wl) - 4vh); width: min(14vw, 230px); }
-.oc-calf--2 { left: 66vw; top: calc(var(--wl) + 8vh); width: min(11vw, 190px); animation-delay: -2s; }
-.oc-calf--3 { left: 10vw; top: calc(var(--wl) + 7vh); width: min(10vw, 170px); animation-delay: -4s; }
+.oc-calf--2 { left: 68vw; top: calc(var(--wl) - 1vh); width: min(11vw, 190px); animation-delay: -2s; }
+.oc-calf--3 { left: 10vw; top: calc(var(--wl) - 2vh); width: min(10vw, 170px); animation-delay: -4s; }
 .oc--family .oc-calf { opacity: 1; }
 /* the farewell: they swim in close */
 .oc--close .oc-calf--1 { left: 59vw; top: calc(var(--wl) - 2vh); }
-.oc--close .oc-calf--2 { left: 46vw; top: calc(var(--wl) + 9vh); }
-.oc--close .oc-calf--3 { left: 18vw; top: calc(var(--wl) + 8vh); }
+.oc--close .oc-calf--2 { left: 46vw; top: calc(var(--wl) + 3vh); }
+.oc--close .oc-calf--3 { left: 17vw; top: calc(var(--wl) + 2vh); }
 /* the daughter takes the lead; the old one slips away */
 .oc--passed .oc-whale { translate: 0 14vh; opacity: 0; }
 /* the daughter takes the old one's place, a bit larger */
 .oc--passed .oc-calf--1 { left: 30vw; top: calc(var(--wl) - 7vh); width: min(22vw, 360px); }
-.oc--passed .oc-calf--2 { left: 58vw; top: calc(var(--wl) + 4vh); }
+.oc--passed .oc-calf--2 { left: 62vw; top: calc(var(--wl) - 1vh); }
 .oc--shore .oc-calf { display: none; }
 .oc--shore .oc-whale { translate: none; opacity: 1; }
 
 /* people on the beach, they pop in one by one */
 .oc-person { position: absolute; z-index: 3; height: auto; scale: 0; transform-origin: 50% 100%;
   transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
-.oc-person--1 { left: 56vw; bottom: 41vh; width: clamp(78px, 9.5vw, 150px); }
+.oc-person--1 { left: 59vw; bottom: 41vh; width: clamp(78px, 9.5vw, 150px); }
 .oc-person--2 { left: 78vw; bottom: 37vh; width: clamp(70px, 8.4vw, 134px); }
 .oc-person--sci { left: 47vw; bottom: 40vh; width: clamp(80px, 9.5vw, 150px); }
 .oc--found .oc-person--1, .oc--found .oc-person--2, .oc--sci .oc-person--sci { scale: 1; }
@@ -33,9 +33,12 @@
 .oc-skull span { font: 700 26px/1 var(--font-head); letter-spacing: .3em; color: var(--muted); }
 @media (max-width: 640px) {
   .page-orca .rw { --wl: 62vh; }
-  .oc-calf--1 { left: 56vw; width: 26vw; } .oc-calf--2 { left: 64vw; width: 20vw; } .oc-calf--3 { left: 4vw; width: 18vw; }
-  /* the daughter takes the old one's place, a bit larger */
-.oc--passed .oc-calf--1 { left: 30vw; top: calc(var(--wl) - 7vh); width: min(22vw, 360px); }
+  .oc-whale { left: 3vw; width: 54vw; }
+  .oc-calf--1 { left: 60vw; top: calc(var(--wl) - 5vh); width: 28vw; } .oc-calf--2 { left: 68vw; top: calc(var(--wl) + 4vh); width: 20vw; } .oc-calf--3 { left: 8vw; top: calc(var(--wl) + 5vh); width: 19vw; }
+  .oc--close .oc-calf--1 { left: 58vw; top: calc(var(--wl) - 2vh); } .oc--close .oc-calf--2 { left: 50vw; top: calc(var(--wl) + 6vh); } .oc--close .oc-calf--3 { left: 22vw; top: calc(var(--wl) + 6vh); }
+  .oc--passed .oc-calf--1 { left: 10vw; top: calc(var(--wl) - 7vh); width: 50vw; } .oc--passed .oc-calf--2 { left: 66vw; top: calc(var(--wl) - 1vh); }
+  .oc--shore .oc-whale { left: 10vw; top: 71vh; width: 80vw; }
+  .oc-person--1 { left: 32vw; bottom: 31vh; width: 68px; } .oc-person--2 { left: 74vw; bottom: 30vh; width: 62px; } .oc-person--sci { left: 4vw; bottom: 31vh; width: 70px; }
 }
 
 /* Solovki: the far shore with the monastery, and things lying about on the beach */
@@ -46,12 +49,20 @@
 .sol--birch { left: 95vw; bottom: 39vh; width: clamp(30px, 4vw, 60px); z-index: 1; }
 .sol--net { left: 31vw; bottom: 35vh; width: clamp(110px, 14vw, 220px); z-index: 1; }
 .sol--boulders { left: -1vw; bottom: 17vh; width: clamp(130px, 17vw, 270px); z-index: 4; }
-.sol--driftwood { left: 66vw; bottom: 17vh; width: clamp(120px, 17vw, 270px); z-index: 4; }
-.sol--rowboat { left: 74vw; bottom: 3vh; width: clamp(160px, 22vw, 340px); z-index: 4; }
-.sol--weed1 { left: 24vw; bottom: 12vh; width: clamp(40px, 5vw, 80px); z-index: 4; }
+.sol--driftwood { left: 73vw; bottom: 22vh; width: clamp(120px, 17vw, 270px); z-index: 4; }
+.sol--rowboat { left: 68vw; bottom: 6vh; width: clamp(150px, 18vw, 290px); z-index: 4; }
+.sol--weed1 { left: 14vw; bottom: 9vh; width: clamp(40px, 5vw, 80px); z-index: 4; }
 .sol--weed2 { left: 55vw; bottom: 10vh; width: clamp(36px, 4.4vw, 70px); z-index: 4; }
 .sol--pebbles { left: 40vw; bottom: 6vh; width: clamp(70px, 9vw, 140px); z-index: 4; }
 .rw-shore .sol, .rw-shore .oc-backdrop { display: block; }
 .oc--passed .oc-calf--1 { width: min(26vw, 430px); }
 @media (min-width: 1024px) { .page-orca.page-orca .rw--shore .rw-caps { justify-content: flex-start; padding-left: max(24px, 4vw); } }
 @media (max-width: 640px) { .oc-backdrop { left: -60vw; width: 220vw; bottom: 58vh; } .sol--boulders, .sol--pebbles, .sol--net { display: none; } .sol--rowboat { left: 52vw; width: 46vw; } .sol--driftwood { left: 4vw; width: 40vw; } }
+
+/* short, wide screens: the orca floats in the water, the family swims beside it */
+@media (max-height: 700px) and (min-aspect-ratio: 8/5) and (min-width: 900px) {
+  .oc-whale { top: calc(var(--wl) - 8vh); }
+  .oc-calf--1 { left: 71vw; top: calc(var(--wl) - 5vh); width: 13vw; } .oc-calf--2 { left: 82vw; top: calc(var(--wl) + 1vh); width: 10vw; } .oc-calf--3 { left: 37vw; top: calc(var(--wl) + 3vh); width: 9vw; }
+  .oc--close .oc-calf--1 { left: 70vw; top: calc(var(--wl) - 3vh); } .oc--close .oc-calf--2 { left: 56vw; top: calc(var(--wl) + 4vh); } .oc--close .oc-calf--3 { left: 42vw; top: calc(var(--wl) + 5vh); }
+  .oc--passed .oc-calf--1 { left: 46vw; top: calc(var(--wl) - 9vh); width: 22vw; } .oc--passed .oc-calf--2 { left: 70vw; top: calc(var(--wl) - 2vh); }
+}

@@ -43,7 +43,7 @@ body.page-right { background: #F4EEE3; }
 }
 .wave--b1 { --top: calc(var(--wl) - 5vh); --h: 22vh; --t: 26s; }
 .wave--b2 { --top: calc(var(--wl) - 2vh); --h: 20vh; --t: 18s; }
-.wave--f1 { --top: calc(var(--wl) + 5vh); --h: 100vh; --t: 13s; }
+.wave--f1 { --top: calc(var(--wl) + 8vh); --h: 100vh; --t: 13s; }
 .wave--far { --top: 41vh; --h: 12vh; --t: 20s; }
 .page-right .bubbles { top: var(--wl); z-index: 4; }
 
@@ -59,7 +59,7 @@ body.page-right { background: #F4EEE3; }
   animation: floatBob 5.5s ease-in-out infinite; }
 @keyframes floatBob { 0%, 100% { translate: 0 0; rotate: -.8deg; } 50% { translate: 0 -8px; rotate: .8deg; } }
 
-.rw-boat { position: absolute; left: 68vw; top: calc(var(--wl) - 19vh); width: min(30vw, 480px); z-index: 2; transform: translateX(62vw); animation: boatBob 4s ease-in-out infinite; }
+.rw-boat { position: absolute; left: 68vw; top: calc(var(--wl) - 14vh); width: min(30vw, 480px); z-index: 2; transform: translateX(62vw); animation: boatBob 4s ease-in-out infinite; }
 .rw-boat__hull { display: block; width: 100%; height: auto; position: relative; z-index: 2; filter: drop-shadow(0 6px 6px rgba(15, 43, 61, .28)); }
 @keyframes boatBob { 0%, 100% { translate: 0 0; rotate: -1.2deg; } 50% { translate: 0 -6px; rotate: 1.2deg; } }
 /* the crew stands on the deck: stern is low (69%), the bow rises to 58%; cut bottoms hide behind the hull */
@@ -140,4 +140,4 @@ body.page-right { background: #F4EEE3; }
 .camp--cooler { left: 80vw; bottom: 19vh; width: clamp(48px, 6vw, 96px); }
 .camp--chair { left: 88vw; bottom: 17vh; width: clamp(40px, 5vw, 80px); }
 .camp--cones { left: 4vw; bottom: 26vh; width: clamp(44px, 5.4vw, 86px); }
-@media (max-width: 640px) { .camp--tripod, .camp--pole, .camp--cones, .camp--crates, .camp--chair { display: none; } .camp--tent { left: 56vw; bottom: 36vh; width: 38vw; } .camp--table { left: 6vw; bottom: 26vh; width: 32vw; } .camp--cooler { left: 70vw; bottom: 24vh; width: 16vw; } }
+@media (max-width: 640px) { .camp--tripod, .camp--pole, .camp--cones, .camp--crates, .camp--chair { display: none; } .camp--tent { left: 52vw; bottom: 40vh; width: 40vw; } .camp--table { left: 2vw; bottom: 38vh; width: 34vw; } .camp--cooler { left: 76vw; bottom: 10vh; width: 16vw; } }
