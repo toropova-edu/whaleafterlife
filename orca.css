@@ -1,0 +1,38 @@
+/* ===== Orca page (placeholder art: the blue whale sprite, tinted dark) ===== */
+.page-orca .rw { --wl: 58vh; }
+.oc-whale, .oc-calf { filter: brightness(.3) contrast(1.15) drop-shadow(0 8px 10px rgba(15, 43, 61, .25)); }
+.oc-whale { transition: translate 2s ease, opacity 1.6s ease; }
+.oc-calf { position: absolute; z-index: 2; height: auto; opacity: 0; pointer-events: none;
+  transition: opacity .8s ease, left 1.6s ease, top 1.6s ease, width 1.6s ease; animation: floatBob 6s ease-in-out infinite; }
+.oc-calf--1 { left: 52vw; top: calc(var(--wl) - 2vh); width: min(18vw, 300px); }
+.oc-calf--2 { left: 60vw; top: calc(var(--wl) + 8vh); width: min(14vw, 240px); animation-delay: -2s; }
+.oc-calf--3 { left: 12vw; top: calc(var(--wl) + 9vh); width: min(11vw, 190px); animation-delay: -4s; }
+.oc--family .oc-calf { opacity: 1; }
+/* the farewell: they swim in close */
+.oc--close .oc-calf--1 { left: 50vw; top: calc(var(--wl) - 3vh); }
+.oc--close .oc-calf--2 { left: 44vw; top: calc(var(--wl) + 6vh); }
+.oc--close .oc-calf--3 { left: 20vw; top: calc(var(--wl) + 6vh); }
+/* the daughter takes the lead; the old one slips away */
+.oc--passed .oc-whale { translate: 0 14vh; opacity: 0; }
+.oc--passed .oc-calf--1 { left: 24vw; top: calc(var(--wl) - 6vh); width: min(34vw, 560px); }
+.oc--passed .oc-calf--2 { left: 58vw; }
+.oc--shore .oc-calf { display: none; }
+.oc--shore .oc-whale { filter: brightness(.3) contrast(1.15) drop-shadow(0 8px 10px rgba(15, 43, 61, .25)); translate: none; opacity: 1; }
+
+/* people on the beach, they pop in one by one */
+.oc-person { position: absolute; z-index: 3; height: auto; scale: 0; transform-origin: 50% 100%;
+  transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
+.oc-person--1 { left: 16vw; bottom: 38vh; width: clamp(48px, 6vw, 96px); }
+.oc-person--2 { left: 76vw; bottom: 40vh; width: clamp(48px, 6vw, 96px); }
+.oc-person--3 { left: 83vw; bottom: 37vh; width: clamp(44px, 5.5vw, 90px); }
+.oc-person--sci { left: 8vw; bottom: 36vh; width: clamp(50px, 6.5vw, 104px); }
+.oc--found .oc-person--1, .oc--found .oc-person--2, .oc--found .oc-person--3, .oc--sci .oc-person--sci { scale: 1; }
+
+.oc-skull { display: flex; align-items: center; gap: 12px; margin: 4px 0 12px; }
+.oc-skull img { width: 120px; height: auto; }
+.oc-skull span { font: 700 26px/1 var(--font-head); letter-spacing: .3em; color: var(--muted); }
+@media (max-width: 640px) {
+  .page-orca .rw { --wl: 62vh; }
+  .oc-calf--1 { left: 56vw; width: 26vw; } .oc-calf--2 { left: 64vw; width: 20vw; } .oc-calf--3 { left: 4vw; width: 18vw; }
+  .oc--passed .oc-calf--1 { left: 5vw; width: 56vw; }
+}
