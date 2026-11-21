@@ -1,6 +1,6 @@
 /* ===== Blue whale page (builds on right.css: sky, sea, waves, captions, modal) ===== */
 
-/* the whale and the birds that perch on her */
+/* the whale and the birds that perch on it */
 .page-blue .rw { --wl: 60vh; }
 .bw-group { position: absolute; left: 22vw; top: calc(var(--wl) - 3vh); width: min(44vw, 720px); z-index: 2; --eat: -14;
   animation: floatBob 5.5s ease-in-out infinite; }
@@ -56,7 +56,7 @@
 .pp.in { scale: 1; }
 .tourist--1 { left: 5.5vw;  bottom: 11vh; width: 6.5vw; }
 .tourist--2 { left: 12vw; bottom: 8vh;  width: 6.5vw; }
-.tourist--3 { left: 19.5vw; bottom: 10vh; width: 6vw; }   /* the child stands left of the whale and points right, at her */
+.tourist--3 { left: 19.5vw; bottom: 10vh; width: 6vw; }   /* the child stands left of the whale and points right, at it */
 .tourist--4 { left: 89vw; bottom: 12vh; width: 6.5vw; }
 .crew-m--exc { left: 4.5vw;  bottom: 11vh; width: 16vw; }
 .crew-m--w1  { left: 19vw; bottom: 8vh;  width: 5vw; }

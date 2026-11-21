@@ -57,7 +57,7 @@ body.page-right { background: #F4EEE3; }
   animation: jellyBob 7s ease-in-out infinite; filter: drop-shadow(0 0 16px rgba(244, 166, 160, .4)); }
 .rw-jelly--2 { right: auto; left: 8%; top: calc(var(--wl) + 26vh); width: clamp(30px, 3.6vw, 60px); opacity: .7; animation-duration: 9s; animation-delay: -3s; }
 
-/* scene 1: she floats low in the water, the boat arrives */
+/* scene 1: it floats low in the water, the boat arrives */
 .rw-whale { position: absolute; left: 22vw; top: calc(var(--wl) - 6vh); width: min(36vw, 600px); height: auto; z-index: 2; cursor: pointer;
   filter: drop-shadow(0 6px 0 rgba(0, 0, 0, .1)) drop-shadow(0 12px 12px rgba(15, 43, 61, .22)); transform-origin: 50% 70%;
   animation: floatBob 5.5s ease-in-out infinite; }
