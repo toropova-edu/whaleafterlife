@@ -2,7 +2,7 @@
 .page-humpback .rw { --wl: 58vh; }
 .hb-whale { transition: translate 1.6s ease, opacity 1.2s ease, filter 1.2s ease, rotate 1.2s ease; }
 .hb-whale > img:first-child { display: block; width: 100%; height: auto; transition: opacity 1.2s ease; }
-.hb-scarred { position: absolute; left: 0; top: 50%; width: 100%; height: auto; translate: 0 -50%; opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+.hb-scarred { position: absolute; left: 0; top: 50%; width: 100%; height: auto; translate: 0 -66%; opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
 .hb--freed .hb-scarred { opacity: 1; }
 .hb--freed .hb-whale > img:first-child { opacity: 0; }
 /* the tail is on the left of the sprite: trap lines hang from it */
@@ -14,4 +14,4 @@
 .hb--gone .hb-whale { translate: 70vw 0; opacity: 0; animation: none; }
 .hb--weak .hb-whale { translate: 0 0; opacity: 1; filter: grayscale(.8) brightness(.92) drop-shadow(0 12px 12px rgba(15, 43, 61, .22)); rotate: 6deg; animation: none; top: calc(var(--wl) - 2vh); }
 .hb--swim .hb-whale { translate: 14vw -1vh; }
-@media (max-width: 640px) { .page-humpback .rw { --wl: 62vh; } }
+@media (max-width: 640px) { .page-humpback .rw { --wl: 62vh; } .hb-whale { left: 13vw; width: 52vw; } .page-humpback .rw-boat { left: 61vw; width: 37vw; } }
