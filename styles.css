@@ -503,7 +503,7 @@ html[data-motion="off"] .swimmer, html[data-motion="off"] .bub { display: none; 
   translate: -50% -50%; animation: trailUp 1.3s ease-out forwards; }
 @keyframes trailUp { 0% { opacity: 0; transform: translate(0, 0) scale(.6); } 15% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--dx, 0), -46px) scale(1.15); } }
 
-/* sand puff when she lands */
+/* sand puff when it lands */
 .puff { position: absolute; border-radius: 50%; pointer-events: none; opacity: 0;
   background: radial-gradient(circle at 40% 40%, rgba(236, 220, 186, .8), rgba(190, 166, 122, 0) 72%); animation: puffOut 1.9s ease-out forwards; }
 @keyframes puffOut { 0% { opacity: 0; transform: translate(0, 0) scale(.4); } 20% { opacity: .85; } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.7); } }
@@ -659,3 +659,12 @@ html[data-motion="off"] .shark { display: none; }
 .stage-frame.shut .sf-drape { width: 50.4vw; }
 .stage-frame.shut .sf-drape--l { box-shadow: 6px 0 16px rgba(15, 43, 61, .25); }
 .stage-frame.shut .sf-drape--r { box-shadow: -6px 0 16px rgba(15, 43, 61, .25); }
+
+/* sources page */
+.page-sources .hero { min-height: 0; display: block; padding-bottom: 150px; }
+.page-sources .src { background: var(--card, #fff); border-radius: 14px; padding: 22px 26px; margin: 0 0 18px; max-width: 760px; box-shadow: 0 6px 18px rgba(15, 43, 61, .08); }
+.page-sources .src h2 { font-size: 24px; margin-bottom: 8px; }
+.page-sources .src ul { margin: 0; padding-left: 20px; }
+.page-sources .src li { margin: 6px 0; line-height: 1.5; }
+.page-sources .aside { margin: 28px 0 0; font-style: normal; }
+.sources-unlock { margin-top: 36px; max-width: 620px; }

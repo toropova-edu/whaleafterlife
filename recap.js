@@ -1,4 +1,4 @@
-/* Whale Afterlife: the "Her story, in short" window, shared by all story pages */
+/* Whale Afterlife: the "Its story, in short" window, shared by all story pages */
 (() => {
   const m = document.getElementById('recapModal');
   if (!m) return;
@@ -9,6 +9,11 @@
     if (!m.hidden) return;
     back = document.activeElement;
     m.hidden = false;
+    try {                                                    // remember which stories were read to the end
+      const id = location.pathname.split('/').pop().replace('.html', '') || 'story';
+      const seen = JSON.parse(localStorage.getItem('seen') || '[]');
+      if (!seen.includes(id)) localStorage.setItem('seen', JSON.stringify([...seen, id]));
+    } catch (e) { /* private mode */ }
     document.documentElement.style.overflow = 'hidden';
     requestAnimationFrame(() => requestAnimationFrame(() => {
       m.classList.add('open');
