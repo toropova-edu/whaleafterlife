@@ -1,0 +1,17 @@
+/* ===== Humpback page (placeholder art: blue whale + crab sprites) ===== */
+.page-humpback .rw { --wl: 58vh; }
+.hb-whale { transition: translate 1.6s ease, opacity 1.2s ease, filter 1.2s ease, rotate 1.2s ease; }
+.hb-whale > img:first-child { display: block; width: 100%; height: auto; }
+/* the tail is on the left of the sprite: trap lines hang from it */
+.hb-traps { position: absolute; left: 0; top: 24%; width: 36%; height: 80%; pointer-events: none; transition: opacity .6s ease, translate 1.2s ease; }
+.hb-traps svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hb-traps path { fill: none; stroke: #6B4F3A; stroke-width: 2; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; }
+.hb-traps .trap { position: absolute; height: auto; filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
+.trap--1 { left: -14%; top: 52%; width: 40%; }
+.trap--2 { left: 26%; top: 62%; width: 34%; rotate: 12deg; }
+.trap--3 { left: 66%; top: 46%; width: 30%; rotate: -10deg; }
+.hb--freed .hb-traps { opacity: 0; translate: 0 18vh; }
+.hb--gone .hb-whale { translate: 70vw 0; opacity: 0; animation: none; }
+.hb--weak .hb-whale { translate: 0 0; opacity: 1; filter: grayscale(.8) brightness(.92) drop-shadow(0 12px 12px rgba(15, 43, 61, .22)); rotate: 6deg; animation: none; top: calc(var(--wl) - 2vh); }
+.hb--swim .hb-whale { translate: 14vw -1vh; }
+@media (max-width: 640px) { .page-humpback .rw { --wl: 62vh; } }
