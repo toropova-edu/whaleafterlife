@@ -1,23 +1,24 @@
-/* ===== Orca page (placeholder art: the blue whale sprite, tinted dark) ===== */
+/* ===== Orca page ===== */
 .page-orca .rw { --wl: 58vh; }
-.oc-whale, .oc-calf { filter: brightness(.3) contrast(1.15) drop-shadow(0 8px 10px rgba(15, 43, 61, .25)); }
+.oc-whale, .oc-calf { filter: drop-shadow(0 8px 10px rgba(15, 43, 61, .25)); }
 .oc-whale { transition: translate 2s ease, opacity 1.6s ease; }
 .oc-calf { position: absolute; z-index: 2; height: auto; opacity: 0; pointer-events: none;
   transition: opacity .8s ease, left 1.6s ease, top 1.6s ease, width 1.6s ease; animation: floatBob 6s ease-in-out infinite; }
-.oc-calf--1 { left: 52vw; top: calc(var(--wl) - 2vh); width: min(18vw, 300px); }
-.oc-calf--2 { left: 60vw; top: calc(var(--wl) + 8vh); width: min(14vw, 240px); animation-delay: -2s; }
-.oc-calf--3 { left: 12vw; top: calc(var(--wl) + 9vh); width: min(11vw, 190px); animation-delay: -4s; }
+.oc-calf--1 { left: 61vw; top: calc(var(--wl) - 4vh); width: min(14vw, 230px); }
+.oc-calf--2 { left: 66vw; top: calc(var(--wl) + 8vh); width: min(11vw, 190px); animation-delay: -2s; }
+.oc-calf--3 { left: 10vw; top: calc(var(--wl) + 7vh); width: min(10vw, 170px); animation-delay: -4s; }
 .oc--family .oc-calf { opacity: 1; }
 /* the farewell: they swim in close */
-.oc--close .oc-calf--1 { left: 50vw; top: calc(var(--wl) - 3vh); }
-.oc--close .oc-calf--2 { left: 44vw; top: calc(var(--wl) + 6vh); }
-.oc--close .oc-calf--3 { left: 20vw; top: calc(var(--wl) + 6vh); }
+.oc--close .oc-calf--1 { left: 59vw; top: calc(var(--wl) - 2vh); }
+.oc--close .oc-calf--2 { left: 46vw; top: calc(var(--wl) + 9vh); }
+.oc--close .oc-calf--3 { left: 18vw; top: calc(var(--wl) + 8vh); }
 /* the daughter takes the lead; the old one slips away */
 .oc--passed .oc-whale { translate: 0 14vh; opacity: 0; }
-.oc--passed .oc-calf--1 { left: 24vw; top: calc(var(--wl) - 6vh); width: min(34vw, 560px); }
-.oc--passed .oc-calf--2 { left: 58vw; }
+/* the daughter takes the old one's place, a bit larger */
+.oc--passed .oc-calf--1 { left: 30vw; top: calc(var(--wl) - 7vh); width: min(22vw, 360px); }
+.oc--passed .oc-calf--2 { left: 58vw; top: calc(var(--wl) + 4vh); }
 .oc--shore .oc-calf { display: none; }
-.oc--shore .oc-whale { filter: brightness(.3) contrast(1.15) drop-shadow(0 8px 10px rgba(15, 43, 61, .25)); translate: none; opacity: 1; }
+.oc--shore .oc-whale { translate: none; opacity: 1; }
 
 /* people on the beach, they pop in one by one */
 .oc-person { position: absolute; z-index: 3; height: auto; scale: 0; transform-origin: 50% 100%;
@@ -33,5 +34,6 @@
 @media (max-width: 640px) {
   .page-orca .rw { --wl: 62vh; }
   .oc-calf--1 { left: 56vw; width: 26vw; } .oc-calf--2 { left: 64vw; width: 20vw; } .oc-calf--3 { left: 4vw; width: 18vw; }
-  .oc--passed .oc-calf--1 { left: 5vw; width: 56vw; }
+  /* the daughter takes the old one's place, a bit larger */
+.oc--passed .oc-calf--1 { left: 30vw; top: calc(var(--wl) - 7vh); width: min(22vw, 360px); }
 }

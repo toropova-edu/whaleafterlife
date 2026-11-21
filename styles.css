@@ -669,4 +669,3 @@ html[data-motion="off"] .shark { display: none; }
 .page-sources .aside { margin: 28px 0 0; font-style: normal; }
 .sources-unlock { margin-top: 36px; max-width: 620px; }
 
-.card__art img.card__art--dark { filter: brightness(.35) contrast(1.15); }
