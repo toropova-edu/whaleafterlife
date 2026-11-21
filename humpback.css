@@ -1,7 +1,10 @@
-/* ===== Humpback page (placeholder art: blue whale + crab sprites) ===== */
+/* ===== Humpback page ===== */
 .page-humpback .rw { --wl: 58vh; }
 .hb-whale { transition: translate 1.6s ease, opacity 1.2s ease, filter 1.2s ease, rotate 1.2s ease; }
-.hb-whale > img:first-child { display: block; width: 100%; height: auto; }
+.hb-whale > img:first-child { display: block; width: 100%; height: auto; transition: opacity 1.2s ease; }
+.hb-scarred { position: absolute; left: 0; top: 50%; width: 100%; height: auto; translate: 0 -50%; opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+.hb--freed .hb-scarred { opacity: 1; }
+.hb--freed .hb-whale > img:first-child { opacity: 0; }
 /* the tail is on the left of the sprite: trap lines hang from it */
 .hb-traps { position: absolute; left: 0; top: 24%; width: 36%; height: 80%; pointer-events: none; transition: opacity .6s ease, translate 1.2s ease; }
 .hb-traps svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }

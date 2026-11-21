@@ -13,7 +13,7 @@ Pick a whale and follow its story.
 | Right whale | `right-whale.html` | ready |
 | Orca | `orca-whale.html` | ready (placeholder art) |
 | Blue whale | `blue-whale.html` | ready |
-| Humpback whale | `humpback-whale.html` | ready (placeholder art) |
+| Humpback whale | `humpback-whale.html` | ready |
 
 ## How it works
 
