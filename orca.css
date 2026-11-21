@@ -1,4 +1,5 @@
 /* ===== Orca page ===== */
+.page-orca .rw { --war: 3.45; }
 .page-orca .rw { --wl: 58vh; }
 .oc-whale, .oc-calf { filter: drop-shadow(0 8px 10px rgba(15, 43, 61, .25)); }
 .oc-whale { transition: translate 2s ease, opacity 1.6s ease; }
@@ -21,11 +22,12 @@
 .oc--shore .oc-whale { translate: none; opacity: 1; }
 
 /* people on the beach, they pop in one by one */
-.oc-person { position: absolute; z-index: 3; height: auto; scale: 0; transform-origin: 50% 100%;
+/* people are sized by screen height, so they are never cropped by the header on short screens */
+.oc-person { position: absolute; z-index: 3; height: 30vh; width: auto; scale: 0; transform-origin: 50% 100%;
   transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
-.oc-person--1 { left: 59vw; bottom: 41vh; width: clamp(78px, 9.5vw, 150px); }
-.oc-person--2 { left: 78vw; bottom: 37vh; width: clamp(70px, 8.4vw, 134px); }
-.oc-person--sci { left: 47vw; bottom: 40vh; width: clamp(80px, 9.5vw, 150px); }
+.oc-person--1 { left: 59vw; bottom: 41vh; }
+.oc-person--2 { left: 78vw; bottom: 37vh; }
+.oc-person--sci { left: 47vw; bottom: 40vh; }
 .oc--found .oc-person--1, .oc--found .oc-person--2, .oc--sci .oc-person--sci { scale: 1; }
 
 .oc-skull { display: flex; align-items: center; gap: 12px; margin: 4px 0 12px; }
@@ -37,14 +39,14 @@
   .oc-calf--1 { left: 60vw; top: calc(var(--wl) - 5vh); width: 28vw; } .oc-calf--2 { left: 68vw; top: calc(var(--wl) + 4vh); width: 20vw; } .oc-calf--3 { left: 8vw; top: calc(var(--wl) + 5vh); width: 19vw; }
   .oc--close .oc-calf--1 { left: 58vw; top: calc(var(--wl) - 2vh); } .oc--close .oc-calf--2 { left: 50vw; top: calc(var(--wl) + 6vh); } .oc--close .oc-calf--3 { left: 22vw; top: calc(var(--wl) + 6vh); }
   .oc--passed .oc-calf--1 { left: 10vw; top: calc(var(--wl) - 7vh); width: 50vw; } .oc--passed .oc-calf--2 { left: 66vw; top: calc(var(--wl) - 1vh); }
-  .oc--shore .oc-whale { left: 10vw; top: 71vh; width: 80vw; }
-  .oc-person--1 { left: 32vw; bottom: 31vh; width: 68px; } .oc-person--2 { left: 74vw; bottom: 30vh; width: 62px; } .oc-person--sci { left: 4vw; bottom: 31vh; width: 70px; }
+  .oc--shore .oc-whale { width: 86vw; bottom: 9vh; }
+  .oc-person { height: 17vh; } .oc-person--1 { left: 30vw; bottom: 33vh; } .oc-person--2 { left: 70vw; bottom: 33vh; } .oc-person--sci { left: 5vw; bottom: 33vh; }
 }
 
 /* Solovki: the far shore with the monastery, and things lying about on the beach */
 .oc-backdrop { position: absolute; left: -2vw; bottom: 59vh; width: 120vw; max-width: none; height: auto; opacity: .8; filter: saturate(.72) brightness(1.05); }
 /* the far shore stands right on the water: the water starts above the wave tops, so no gap shows through the curls */
-.page-orca .rw-sea--far { top: 38vh; height: 24vh; }
+.page-orca .rw-sea--far { top: 38vh; height: 62vh; }
 .sol { position: absolute; z-index: 2; height: auto; max-width: none; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .18)); }
 .sol--pine { left: 2vw; bottom: 40vh; width: clamp(50px, 7vw, 110px); z-index: 1; }
 .sol--trees { left: 86vw; bottom: 39vh; width: clamp(80px, 11vw, 170px); z-index: 1; }
@@ -62,3 +64,5 @@
   .oc--close .oc-calf--1 { left: 70vw; top: calc(var(--wl) - 3vh); } .oc--close .oc-calf--2 { left: 56vw; top: calc(var(--wl) + 4vh); } .oc--close .oc-calf--3 { left: 42vw; top: calc(var(--wl) + 5vh); }
   .oc--passed .oc-calf--1 { left: 46vw; top: calc(var(--wl) - 9vh); width: 22vw; } .oc--passed .oc-calf--2 { left: 70vw; top: calc(var(--wl) - 2vh); }
 }
+
+.page-orca .rw--shore .sun { display: none; }   /* a pale northern sky: the sun would sit right on the monastery */

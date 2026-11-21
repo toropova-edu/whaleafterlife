@@ -27,7 +27,7 @@ body.page-right { background: #F4EEE3; }
 .rw-shore-front { z-index: 3; }
 .rw { --wl: 57vh; }   /* the waterline: everything in scene 1 is placed relative to it */
 .rw-sea { position: absolute; left: 0; right: 0; top: calc(var(--wl) + 4vh); bottom: 0; background: url(assets/sprites/bg-water.jpg) top / 100% 100% no-repeat, linear-gradient(#8CCFCB, #4AA3A6 22%, #16707A 55%, #0F4A5C 100%); }
-.rw-sea--far { top: 44vh; bottom: auto; height: 16vh; background: url(assets/sprites/bg-water.jpg) 0 14% / 100% 650% no-repeat, #5F9FA4; }
+.rw-sea--far { top: 44vh; bottom: auto; height: 56vh; background: url(assets/sprites/bg-water.jpg) 0 14% / 100% 650% no-repeat, #5F9FA4; }
 
 /* waves are fixed-size tiles that repeat sideways, so they never get squeezed or stretched.
    The tile image is set from JS; the fill under the crest is a plain colour. */
@@ -44,7 +44,7 @@ body.page-right { background: #F4EEE3; }
 }
 .wave--b1 { --top: calc(var(--wl) - 5vh); --h: 22vh; --t: 26s; }
 .wave--b2 { --top: calc(var(--wl) - 2vh); --h: 20vh; --t: 18s; }
-.wave--f1 { --top: calc(var(--wl) + 8vh); --h: 100vh; --t: 13s; }
+.wave--f1 { --top: calc(var(--wl) + 12vh); --h: 100vh; --t: 13s; }
 .wave--far { --top: 41vh; --h: 12vh; --t: 20s; }
 .page-right .bubbles { top: var(--wl); z-index: 4; }
 
@@ -75,13 +75,15 @@ body.page-right { background: #F4EEE3; }
 .rw--shore .rw-sea1, .rw--shore .rw-front1, .rw--shore .bubbles, .rw--shore .rw-boat { display: none; }
 .rw--shore .rw-shore, .rw--shore .rw-shore-front { display: block; }
 .dune { position: absolute; left: 0; width: 100%; display: block; filter: drop-shadow(0 -3px 5px rgba(15, 43, 61, .1));
-  background-repeat: no-repeat; background-color: var(--dfill); background-image: var(--dimg), url(assets/sprites/bg-sand.jpg);
-  background-size: 100% auto, 100% 100%; background-position: top, 0 calc(100vw / var(--dar) - 2px); background-blend-mode: normal, soft-light; }
-.dune--back { --dimg: url(assets/sprites/dune-far.png); --dfill: #E6D8B7; --dar: 7.75; top: 52vh; height: 48vh; }
-.dune--mid { --dimg: url(assets/sprites/dune-mid.png); --dfill: #D6C095; --dar: 7.53; top: 62vh; height: 38vh; }
-.dune--front { --dimg: url(assets/sprites/dune-near.png); --dfill: #BFA882; --dar: 7.74; top: 82vh; height: 18vh; }
+  background-repeat: no-repeat; background-image: var(--dimg), linear-gradient(var(--dfill), var(--dfill)); background-size: 100% auto, 100% 100%;
+  background-position: top, 0 calc(100vw * .79); }   /* the sprite carries its own paper body; the flat colour only continues it below the sprite on tall screens */
+.dune--back { --dimg: url(assets/sprites/dune-far.png); --dfill: #E5D7B6; top: 52vh; height: 48vh; }
+.dune--mid { --dimg: url(assets/sprites/dune-mid.png); --dfill: #D5BF95; top: 62vh; height: 38vh; }
+.dune--front { --dimg: url(assets/sprites/dune-near.png); --dfill: #BEA680; top: 82vh; height: 18vh; }
 .rw-tent { display: none; position: absolute; left: 66vw; bottom: 37vh; width: clamp(110px, 15vw, 240px); height: auto; z-index: 3; filter: drop-shadow(0 6px 6px rgba(15, 43, 61, .22)); }
-.rw--shore .rw-whale { left: 24vw; top: 61vh; width: min(48vw, 790px); animation: none; rotate: -2deg; }
+.rw { --war: 2.44; }   /* whale sprite aspect ratio, so its height can be capped by the screen height */
+/* golden rule: the whale is the centre of the story. On the shore it stands in front of every prop, person and dune, centred and never cropped */
+.rw--shore .rw-whale { left: 0; right: 0; margin-inline: auto; top: auto; bottom: 8vh; width: min(48vw, 790px, calc(44vh * var(--war))); animation: none; rotate: -2deg; z-index: 6; }
 
 .rw-hearts { position: absolute; left: 50vw; top: 58vh; z-index: 6; width: 0; height: 0; pointer-events: none; }
 .rw-hearts i { position: absolute; left: calc(var(--x, 0) * 1px); bottom: 0; font-style: normal; font-size: var(--s, 22px); line-height: 1; color: #F4A6A0; opacity: 0; }
@@ -114,7 +116,7 @@ body.page-right { background: #F4EEE3; }
   .rw-boat { width: min(42vw, 330px); left: 54vw; top: calc(var(--wl) - 7vh); }
 }
 @media (max-width: 640px) {
-  .rw--shore .rw-whale { left: 5vw; top: 63vh; width: 90vw; }
+  .rw--shore .rw-whale { width: 90vw; bottom: 9vh; }
   .rw-tent { left: 58vw; bottom: 36vh; width: 30vw; }   /* below the caption card, above the whale */
   .rw-hearts { left: 50vw; top: 60vh; }
 }
@@ -127,7 +129,7 @@ body.page-right { background: #F4EEE3; }
   .rw-caps .cap p { font-size: 14.5px; line-height: 1.5; }
   .rw-whale { left: 40vw; top: 45vh; width: min(29vw, 520px); }
   .rw-boat { left: 72vw; width: min(24vw, 360px); }
-  .rw--shore .rw-whale { left: 36vw; top: 63vh; width: min(44vw, 720px); }
+  .rw--shore .rw-whale { width: min(44vw, 720px, calc(44vh * var(--war))); }
   .rw-tent { left: 70vw; }
 }
 
