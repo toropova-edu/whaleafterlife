@@ -22,9 +22,9 @@
 /* people on the beach, they pop in one by one */
 .oc-person { position: absolute; z-index: 3; height: auto; scale: 0; transform-origin: 50% 100%;
   transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
-.oc-person--1 { left: 15vw; bottom: 36vh; width: clamp(60px, 7vw, 112px); }
-.oc-person--2 { left: 78vw; bottom: 38vh; width: clamp(54px, 6.2vw, 100px); }
-.oc-person--sci { left: 6vw; bottom: 35vh; width: clamp(60px, 7vw, 112px); }
+.oc-person--1 { left: 17vw; bottom: 36vh; width: clamp(78px, 9.5vw, 150px); }
+.oc-person--2 { left: 78vw; bottom: 37vh; width: clamp(70px, 8.4vw, 134px); }
+.oc-person--sci { left: 5vw; bottom: 34vh; width: clamp(80px, 9.5vw, 150px); }
 .oc--found .oc-person--1, .oc--found .oc-person--2, .oc--sci .oc-person--sci { scale: 1; }
 
 .oc-skull { display: flex; align-items: center; gap: 12px; margin: 4px 0 12px; }
