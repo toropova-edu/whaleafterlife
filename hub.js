@@ -19,7 +19,7 @@
   // paper waves at the bottom: one wave tile per colour, repeated sideways
   const WAVE_IMG = { '#16707A': 'wave-deep', '#5FB0B0': 'wave-mid', '#A9D6D3': 'wave-light' };
   const WAVE_FILL = { 'wave-deep': '#276C75', 'wave-mid': '#609FA4', 'wave-light': '#A3CDCC' };
-  const WAVE_AR = { 'wave-deep': 26.1, 'wave-mid': 25.5, 'wave-light': 24.7 };
+  const WAVE_AR = { 'wave-deep': 8.43, 'wave-mid': 8.26, 'wave-light': 6.2 };
   document.querySelectorAll('[data-wave]').forEach((el) => {
     const n = WAVE_IMG[el.dataset.wave] || 'wave-mid';
     const body = el.dataset.fill || `linear-gradient(${WAVE_FILL[n]}, ${WAVE_FILL[n]})`;   // below the crest: flat colour or a gradient
