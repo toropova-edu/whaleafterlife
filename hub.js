@@ -32,6 +32,12 @@
   const onScroll = () => nav.classList.toggle('nav--solid', window.scrollY > 24);
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
+  // after a couple of stories have been read to the end, show where the facts come from
+  try {
+    const seen = JSON.parse(localStorage.getItem('seen') || '[]');
+    if (seen.length >= 2) $('#sourcesUnlock').hidden = false;
+  } catch (e) { /* private mode */ }
+
   // motion switch (the choice is remembered)
   const mt = $('#motionToggle'), ml = $('#motionLabel');
   const paint = () => { const on = !reducedMotion(); mt.setAttribute('aria-pressed', String(on)); ml.textContent = on ? 'Motion: on' : 'Motion: off'; };
