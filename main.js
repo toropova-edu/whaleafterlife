@@ -254,6 +254,7 @@
   const modal = $('#choiceModal');
   let lastJourney = -2;
 
+  const hintEl = $('#scrollHint');
   function update() {
     const vh = innerHeight;
     const r = descent.getBoundingClientRect();
@@ -274,6 +275,7 @@
       lastDepth = shown;
     }
     depthEl.classList.toggle('show', inStory && r.top < vh * .6 && r.bottom > vh * .45);
+    if (hintEl) hintEl.classList.toggle('show', inStory && !body.classList.contains('unlocked') && !$('#descent .cap[data-step="2"].on, #descent .cap:last-of-type.on') && !(modal && !modal.hidden));
     const jl = journeyDots[1] && journeyDots[1].querySelector('span');
     if (jl) jl.textContent = shown > 0 ? `Act II: Descent · ${shown.toLocaleString('en-US')} m` : 'Act II: Descent';
     rays.style.opacity = inStory ? clamp(1 - depth / 650).toFixed(2) : 0;
