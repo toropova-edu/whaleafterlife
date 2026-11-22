@@ -666,3 +666,12 @@ html[data-motion="off"] .shark { display: none; }
 .page-sources .aside { margin: 28px 0 0; font-style: normal; }
 .sources-unlock { margin-top: 36px; max-width: 620px; }
 
+
+/* a quiet side hint for the scroll-driven part of the fin whale story */
+.scroll-hint { position: fixed; left: 14px; top: 50%; translate: 0 -50%; z-index: 40; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--primary); font: 700 12px/1 var(--font-body); letter-spacing: .16em; text-transform: uppercase; opacity: 0; pointer-events: none; transition: opacity .5s ease; }
+.scroll-hint.show { opacity: .8; }
+.scroll-hint span { writing-mode: vertical-rl; rotate: 180deg; }
+.scroll-hint i { font-style: normal; font-size: 18px; animation: nudge 1.8s ease-in-out infinite; }
+body.in-story .scroll-hint { color: #fff; }
+@media (max-width: 640px) { .scroll-hint { left: 6px; font-size: 10px; } }
