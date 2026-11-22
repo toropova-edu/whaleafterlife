@@ -1,5 +1,5 @@
 /* ===== Orca page ===== */
-.page-orca .rw { --war: 3.45; }
+.page-orca .rw { --war: 3.45; --hz: 40vh; }
 .page-orca .rw { --wl: 58vh; }
 .oc-whale, .oc-calf { filter: drop-shadow(0 8px 10px rgba(15, 43, 61, .25)); }
 .oc-whale { transition: translate 2s ease, opacity 1.6s ease; }
@@ -23,11 +23,11 @@
 
 /* people on the beach, they pop in one by one */
 /* people are sized by screen height, so they are never cropped by the header on short screens */
-.oc-person { position: absolute; z-index: 3; height: 30vh; width: auto; scale: 0; transform-origin: 50% 100%;
+.oc-person { position: absolute; z-index: 3; height: min(30vh, calc(var(--u) * 17)); width: auto; scale: 0; transform-origin: 50% 100%;
   transition: scale .5s cubic-bezier(.34, 1.56, .64, 1); filter: drop-shadow(0 3px 3px rgba(15, 43, 61, .25)); }
-.oc-person--1 { left: 59vw; bottom: 41vh; }
-.oc-person--2 { left: 78vw; bottom: 37vh; }
-.oc-person--sci { left: 47vw; bottom: 40vh; }
+.oc-person--1 { left: 16vw; bottom: calc(100vh - var(--hz) - var(--u) * 21); }
+.oc-person--2 { left: 80vw; bottom: calc(100vh - var(--hz) - var(--u) * 21); }
+.oc-person--sci { left: 6vw; bottom: calc(100vh - var(--hz) - var(--u) * 21); }
 .oc--found .oc-person--1, .oc--found .oc-person--2, .oc--sci .oc-person--sci { scale: 1; }
 
 .oc-skull { display: flex; align-items: center; gap: 12px; margin: 4px 0 12px; }
@@ -40,22 +40,17 @@
   .oc--close .oc-calf--1 { left: 58vw; top: calc(var(--wl) - 2vh); } .oc--close .oc-calf--2 { left: 50vw; top: calc(var(--wl) + 6vh); } .oc--close .oc-calf--3 { left: 22vw; top: calc(var(--wl) + 6vh); }
   .oc--passed .oc-calf--1 { left: 10vw; top: calc(var(--wl) - 7vh); width: 50vw; } .oc--passed .oc-calf--2 { left: 66vw; top: calc(var(--wl) - 1vh); }
   .oc--shore .oc-whale { width: 86vw; bottom: 9vh; }
-  .oc-person { height: 17vh; } .oc-person--1 { left: 30vw; bottom: 33vh; } .oc-person--2 { left: 70vw; bottom: 33vh; } .oc-person--sci { left: 5vw; bottom: 33vh; }
+  .oc-person--1 { left: 30vw; } .oc-person--2 { left: 68vw; } .oc-person--sci { left: 3vw; }
 }
 
-/* Solovki: the far shore with the monastery, and things lying about on the beach */
-.oc-backdrop { position: absolute; left: -2vw; bottom: 59vh; width: 120vw; max-width: none; height: auto; opacity: .8; filter: saturate(.72) brightness(1.05); }
-/* the far shore stands right on the water: the water starts above the wave tops, so no gap shows through the curls */
-.page-orca .rw-sea--far { top: 38vh; height: 62vh; }
+/* Solovki: the far shore stands behind the water; its base is hidden inside the first wave strip */
+.oc-backdrop { position: absolute; left: 50%; translate: -50% 0; top: calc(var(--hz) - var(--u) * 9.4); width: calc(var(--u) * 130); max-width: none; height: auto; opacity: .85; filter: saturate(.72) brightness(1.04); }
 .sol { position: absolute; z-index: 2; height: auto; max-width: none; filter: drop-shadow(0 4px 4px rgba(15, 43, 61, .18)); }
-.sol--pine { left: 2vw; bottom: 40vh; width: clamp(50px, 7vw, 110px); z-index: 1; }
-.sol--trees { left: 86vw; bottom: 39vh; width: clamp(80px, 11vw, 170px); z-index: 1; }
-.sol--birch { left: 95vw; bottom: 39vh; width: clamp(30px, 4vw, 60px); z-index: 1; }
-.sol--net { left: 31vw; bottom: 35vh; width: clamp(110px, 14vw, 220px); z-index: 1; }
+.sol--trees { left: 89vw; bottom: calc(100vh - var(--hz) - var(--u) * 20); width: calc(var(--u) * 10); z-index: 1; }
+.sol--birch { left: 97vw; bottom: calc(100vh - var(--hz) - var(--u) * 20); width: calc(var(--u) * 4); z-index: 1; }
 .rw-shore .sol, .rw-shore .oc-backdrop { display: block; }
 .oc--passed .oc-calf--1 { width: min(26vw, 430px); }
 @media (min-width: 1024px) { .page-orca.page-orca .rw--shore .rw-caps { justify-content: flex-start; padding-left: max(24px, 4vw); } }
-@media (max-width: 640px) { .oc-backdrop { left: -80vw; width: 200vw; bottom: 59vh; } .sol--net { display: none; } }
 
 /* short, wide screens: the orca floats in the water, the family swims beside it */
 @media (max-height: 700px) and (min-aspect-ratio: 8/5) and (min-width: 900px) {
@@ -66,3 +61,9 @@
 }
 
 .page-orca .rw--shore .sun { display: none; }   /* a pale northern sky: the sun would sit right on the monastery */
+
+/* short wide screens: the caption sits on the left, so the people stand to the right of the whale */
+@media (max-height: 700px) and (min-aspect-ratio: 8/5) and (min-width: 900px) {
+  .oc-person--sci { left: 73vw; } .oc-person--1 { left: 83vw; } .oc-person--2 { left: 92vw; }
+  .sol--trees, .sol--birch { display: none; }
+}

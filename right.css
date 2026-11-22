@@ -27,7 +27,6 @@ body.page-right { background: #F4EEE3; }
 .rw-shore-front { z-index: 3; }
 .rw { --wl: 57vh; }   /* the waterline: everything in scene 1 is placed relative to it */
 .rw-sea { position: absolute; left: 0; right: 0; top: calc(var(--wl) + 4vh); bottom: 0; background: url(assets/sprites/bg-water.jpg) top / 100% 100% no-repeat, linear-gradient(#8CCFCB, #4AA3A6 22%, #16707A 55%, #0F4A5C 100%); }
-.rw-sea--far { top: 44vh; bottom: auto; height: 56vh; background: url(assets/sprites/bg-water.jpg) 0 14% / 100% 650% no-repeat, #5F9FA4; }
 
 /* waves are fixed-size tiles that repeat sideways, so they never get squeezed or stretched.
    The tile image is set from JS; the fill under the crest is a plain colour. */
@@ -45,7 +44,6 @@ body.page-right { background: #F4EEE3; }
 .wave--b1 { --top: calc(var(--wl) - 5vh); --h: 22vh; --t: 26s; }
 .wave--b2 { --top: calc(var(--wl) - 2vh); --h: 20vh; --t: 18s; }
 .wave--f1 { --top: calc(var(--wl) + 12vh); --h: 100vh; --t: 13s; }
-.wave--far { --top: 41vh; --h: 12vh; --t: 20s; }
 .page-right .bubbles { top: var(--wl); z-index: 4; }
 
 /* life in the deep water, so the lower part of the scene is never empty */
@@ -74,12 +72,19 @@ body.page-right { background: #F4EEE3; }
 /* scene 2: the shore. Only the whale and a tent. One hard cut. */
 .rw--shore .rw-sea1, .rw--shore .rw-front1, .rw--shore .bubbles, .rw--shore .rw-boat { display: none; }
 .rw--shore .rw-shore, .rw--shore .rw-shore-front { display: block; }
-.dune { position: absolute; left: 0; width: 100%; display: block; filter: drop-shadow(0 -3px 5px rgba(15, 43, 61, .1));
-  background-repeat: no-repeat; background-image: var(--dimg), linear-gradient(var(--dfill), var(--dfill)); background-size: 100% auto, 100% 100%;
-  background-position: top, 0 calc(100vw * .79); }   /* the sprite carries its own paper body; the flat colour only continues it below the sprite on tall screens */
-.dune--back { --dimg: url(assets/sprites/dune-far.png); --dfill: #E5D7B6; top: 52vh; height: 48vh; }
-.dune--mid { --dimg: url(assets/sprites/dune-mid.png); --dfill: #D5BF95; top: 62vh; height: 38vh; }
-.dune--front { --dimg: url(assets/sprites/dune-near.png); --dfill: #BEA680; top: 82vh; height: 18vh; }
+/* ---- the shore is one stack of layers measured in the same unit (--u), so no seam can open on any screen:
+   backdrop (stands behind the water) > sea with waves > back dune > mid dune > front dune. Each layer starts a little
+   inside the one behind it, and the sprites carry their own paper body all the way down. ---- */
+.rw { --u: max(1vw, .85vh); --hz: 38vh; }   /* --u scales the scene to cover the screen; --hz is where the sea starts */
+.sh-water { position: absolute; left: 0; right: 0; top: var(--hz); bottom: 0; --tw: calc(var(--u) * 58);
+  background: url(assets/sprites/wave-shore.png) 0 0 / var(--tw) auto repeat-x, linear-gradient(#5E9EA3, #5E9EA3) 0 calc(var(--u) * 7) / 100% 100% no-repeat; animation: shoreWave 90s linear infinite; }
+@keyframes shoreWave { from { background-position: calc(var(--tw) * -1) 0, 0 calc(var(--u) * 7); } to { background-position: 0 0, 0 calc(var(--u) * 7); } }   /* the crests curl right, the sea drifts right */
+.dune { position: absolute; left: 0; right: 0; height: 100vh; display: block; filter: drop-shadow(0 -3px 5px rgba(15, 43, 61, .1));
+  background-repeat: no-repeat; background-image: var(--dimg), url(assets/sprites/bg-sand.jpg), linear-gradient(var(--dfill), var(--dfill));
+  background-size: calc(var(--u) * 100) auto, 100% 100%, 100% 100%; background-position: center top, 0 calc(var(--u) * 79), 0 calc(var(--u) * 79); background-blend-mode: normal, soft-light, normal; }   /* below the sprite: the sand colour with the paper texture on tall screens */
+.dune--back { --dimg: url(assets/sprites/dune-far.png); --dfill: #E5D7B6; top: calc(var(--hz) + var(--u) * 7); }
+.dune--mid { --dimg: url(assets/sprites/dune-mid.png); --dfill: #D5BF95; top: calc(var(--hz) + var(--u) * 14); }
+.dune--front { --dimg: url(assets/sprites/dune-near.png); --dfill: #BEA680; top: calc(var(--hz) + var(--u) * 22); }
 .rw-tent { display: none; position: absolute; left: 66vw; bottom: 37vh; width: clamp(110px, 15vw, 240px); height: auto; z-index: 3; filter: drop-shadow(0 6px 6px rgba(15, 43, 61, .22)); }
 .rw { --war: 2.44; }   /* whale sprite aspect ratio, so its height can be capped by the screen height */
 /* golden rule: the whale is the centre of the story. On the shore it stands in front of every prop, person and dune, centred and never cropped */
@@ -135,9 +140,12 @@ body.page-right { background: #F4EEE3; }
 
 /* the research camp on the beach */
 .camp { position: absolute; z-index: 3; height: auto; filter: drop-shadow(0 5px 5px rgba(15, 43, 61, .2)); }
-.camp--tripod { left: 6vw; bottom: 36vh; width: clamp(34px, 4.4vw, 70px); }
-.camp--table { left: 77vw; bottom: 35vh; width: clamp(110px, 14vw, 220px); }
-.camp--crates { left: 92vw; bottom: 35vh; width: clamp(40px, 5.2vw, 84px); }
-.camp--cooler { left: 80vw; bottom: 19vh; width: clamp(48px, 6vw, 96px); }
-.camp--cones { left: 4vw; bottom: 26vh; width: clamp(44px, 5.4vw, 86px); }
-@media (max-width: 640px) { .camp--tripod, .camp--cones, .camp--crates { display: none; } .camp--table { left: 2vw; bottom: 38vh; width: 34vw; } .camp--cooler { left: 76vw; bottom: 10vh; width: 16vw; } }
+.camp--tripod { left: 6vw; bottom: calc(100vh - var(--hz) - var(--u) * 17); width: clamp(34px, 4.4vw, 70px); }
+.camp--table { left: 77vw; bottom: calc(100vh - var(--hz) - var(--u) * 16); width: clamp(110px, 14vw, 220px); }
+.camp--crates { left: 92vw; bottom: calc(100vh - var(--hz) - var(--u) * 16); width: clamp(40px, 5.2vw, 84px); }
+.camp--cooler { left: 82vw; bottom: calc(100vh - var(--hz) - var(--u) * 26); width: clamp(48px, 6vw, 96px); }
+.camp--cones { left: 4vw; bottom: calc(100vh - var(--hz) - var(--u) * 25); width: clamp(44px, 5.4vw, 86px); }
+@media (max-width: 640px) { .camp--tripod, .camp--cones, .camp--crates { display: none; } .camp--table { left: 3vw; width: 34vw; } .camp--cooler { left: 74vw; width: 16vw; } }
+
+/* tall screens: the whale is big, the story is about it */
+@media (max-aspect-ratio: 1/1) { .rw--shore .rw-whale { width: min(90vw, 780px); bottom: 10vh; } }

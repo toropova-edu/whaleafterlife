@@ -91,3 +91,6 @@
   .bw-group { left: 40vw; top: calc(var(--wl) - 11vh); width: min(32vw, 520px); }
   .rw--ak .bw-group { left: 38vw; top: 60vh; width: min(42vw, 700px); }
 }
+
+/* tall screens: the whale is the story, so it takes most of the width */
+@media (max-aspect-ratio: 1/1) and (min-width: 641px) { .rw--ak .bw-group { left: 6vw; top: 58vh; width: 88vw; } }
